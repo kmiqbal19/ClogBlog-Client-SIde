@@ -1,0 +1,39 @@
+/* Import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Koulen&display=swap");
+div.header {
+  width: 100vw;
+  height: 70vh;
+  /* border: 3px solid red; */
+  position: relative;
+}
+.headerVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.overlayVideo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(85, 64, 23, 0.626);
+}
+.headerTextContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.headerTextContainer p {
+  font-size: calc(3vw + 2rem);
+  letter-spacing: 5px;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Koulen", cursive;
+  mix-blend-mode: difference;
+}

@@ -65,6 +65,7 @@ div.topBar__right a {
   justify-content: center;
   align-items: center;
   font-size: calc(1rem + 0.5vw);
+  color: rgb(36, 7, 7);
 }
 div.topBar__right img {
   width: 40px;
