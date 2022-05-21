@@ -2,7 +2,10 @@ div.topBar {
   width: 100%;
   height: 100%;
   background-color: #f5f0e7;
+  position: sticky;
+  top: 0;
   display: flex;
+  z-index: 5;
 }
 /* Left Side */
 div.topBar__left {

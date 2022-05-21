@@ -1,11 +1,11 @@
 /* Import google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,500;1,400;1,500&family=Oleo+Script&display=swap");
 div.postContainer {
-  width: 25vw;
-  height: 60vh;
+  flex-basis: 20vw;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  margin: 3vw 2vw;
+  margin: 3vw 3vw;
 }
 
 div.postContainer img {
