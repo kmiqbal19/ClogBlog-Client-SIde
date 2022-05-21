@@ -72,12 +72,12 @@ div.writeFormGroupUp {
 button.writeSubmit {
   margin-top: calc(1rem + 1vh);
   padding: 0.8rem 2rem;
-  width: 30%;
+  width: 20%;
   align-self: flex-end;
   border-radius: 0.5rem;
   font-size: calc(0.8rem + 0.5vw);
   border: none;
-  background-color: rebeccapurple;
+  background-color: rgb(153, 51, 151);
   color: white;
   cursor: pointer;
 }
