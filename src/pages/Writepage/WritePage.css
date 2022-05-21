@@ -1,0 +1,86 @@
+div.writePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.writePage img {
+  width: 70%;
+  height: 60vh;
+  object-fit: cover;
+  border-radius: 4rem;
+}
+form.writeForm {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 70%;
+}
+div.writeFormGroupUp {
+  display: flex;
+  /* flex-direction: column; */
+  margin: 2rem;
+}
+.writeIcon {
+  width: 3vw;
+  height: 3vw;
+  font-size: 2vw;
+  border: 1px solid;
+  border-radius: 50%;
+  color: rgb(129, 125, 125);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.writeTitleInput {
+  height: 4vh;
+  margin-left: 4vw;
+  width: 100%;
+  padding: 1rem 2rem 1.4rem;
+  border: none;
+  font-size: calc(0.8vw + 1rem);
+  background: none;
+}
+.writeTitleInput:focus {
+  outline: none;
+  border-bottom: 1px solid rgb(54, 14, 14);
+  border-radius: 10%;
+}
+.writeFormGroupDown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.writeFormGroupDown textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: calc(1rem + 0.5vw);
+  height: 20vh;
+  background: none;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 1rem;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  font-family: inherit;
+}
+.writeFormGroupDown textarea {
+  outline: none;
+}
+button.writeSubmit {
+  margin-top: calc(1rem + 1vh);
+  padding: 0.8rem 2rem;
+  width: 30%;
+  align-self: flex-end;
+  border-radius: 0.5rem;
+  font-size: calc(0.8rem + 0.5vw);
+  border: none;
+  background-color: rebeccapurple;
+  color: white;
+  cursor: pointer;
+}
+button.writeSubmit:hover {
+  background-color: rgb(119, 78, 160);
+}
