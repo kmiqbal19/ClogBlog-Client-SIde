@@ -7,6 +7,10 @@ function Header() {
     <div className="header">
       <div className="overlayVideo"></div>
       <video className="headerVideo" src={headerVideo} autoPlay loop muted />
+      <p className="headerTextCoder">
+        {">"}
+        <span>_</span>
+      </p>
       <div className="headerTextContainer">
         <p className="typingText">
           <Typical

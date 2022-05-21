@@ -1,5 +1,5 @@
 /* Import google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Koulen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Koulen&family=Rubik+Glitch&display=swap");
 div.header {
   width: 100vw;
   height: 70vh;
@@ -30,10 +30,39 @@ div.header {
   height: 100%;
 }
 .headerTextContainer p {
-  font-size: calc(3vw + 2rem);
+  font-size: calc(5vw + 3rem);
+
   letter-spacing: 5px;
-  color: white;
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
   font-family: "Koulen", cursive;
+  /* font-family: "Rubik Glitch", cursive; */
   mix-blend-mode: difference;
+}
+.headerTextCoder {
+  position: absolute;
+  top: -5%;
+  left: 1%;
+  font-size: calc(3vw + 3rem);
+  color: white;
+  mix-blend-mode: difference;
+  font-weight: "Rubik Glitch", cursive;
+  font-weight: bold;
+}
+.headerTextCoder span {
+  animation-name: bip;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes bip {
+  0% {
+    color: white;
+  }
+  50% {
+    color: transparent;
+  }
+  100% {
+    color: white;
+  }
 }
