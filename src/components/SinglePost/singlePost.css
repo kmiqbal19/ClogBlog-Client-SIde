@@ -53,15 +53,29 @@ div.singlePostCategoryContainer {
   display: flex;
   flex-direction: column;
 }
-/* div.singlePostCategoryContainer span {
-  font-weight: bold;
-} */
+
 form.singlePostCategorySelection {
   /* border: 1px solid red; */
   width: 80%;
 
   text-align: center;
 }
+ul.singlePostCategoryList {
+  display: flex;
+}
+ul.singlePostCategoryList li {
+  padding: 0.5rem 2rem;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  border-radius: 1rem;
+  background-color: rgb(66, 120, 143);
+  color: white;
+  font-size: calc(0.5rem + 0.5vw);
+}
+ul.singlePostCategoryList li:hover {
+  background-color: rgb(100, 186, 222);
+}
+/* /////////////////////////////////////// */
 /* Customize the label */
 .singlePostCatLabel {
   display: inline-block;

@@ -1,24 +1,45 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useLocation, Link } from "react-router-dom";
 import "./singlePost.css";
+
 function SinglePost() {
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
+
   const user = true;
+  const [post, setPost] = useState({});
+  const [catg, setCatg] = useState([]);
+  const [edit, setEdit] = useState(false);
+  useEffect(() => {
+    const fetch = async () => {
+      const res = await axios.get(`/posts/${path}`);
+      setPost(res.data.data.post);
+      setCatg(res.data.data.post.categories);
+    };
+
+    fetch();
+  }, []);
+
   return (
     <div className="singlePostContainer">
-      <img
-        src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        alt="postPicture"
-      />
+      {post.photo && (
+        <img src={`http://localhost:5000/${post.photo}`} alt="postPicture" />
+      )}
       <h1 className="singlePostTitleContainer">
-        This is the post singlePostTitle
+        {post.title}
         <div className="singlePostEditOptions">
-          <i class="postEditIcon fa-solid fa-pen-nib"></i>
-          <i class="postEditIcon fa-solid fa-trash"></i>
+          <i
+            className="postEditIcon fa-solid fa-pen-nib"
+            onClick={() => setEdit(true)}
+          ></i>
+          <i className="postEditIcon fa-solid fa-trash"></i>
         </div>
       </h1>
       <div className="singlePostCategoryContainer">
         <span>Category: </span>
 
-        {user ? (
+        {edit ? (
           <form className="singlePostCategorySelection">
             <label className="singlePostCatLabel" htmlFor="musicCatg">
               <input
@@ -72,32 +93,30 @@ function SinglePost() {
             </label>
           </form>
         ) : (
-          "#music"
+          <ul className="singlePostCategoryList">
+            {catg.map((el, i) => {
+              return (
+                <Link
+                  key={`catSinglePostLink${i}`}
+                  to={`/posts/?cat=${el.toLowerCase()}`}
+                >
+                  <li key={`catSinglePost${i}`}>{`#${el}`} </li>
+                </Link>
+              );
+            })}
+          </ul>
         )}
       </div>
       <div className="singlePostInfo">
         <span className="singlePostAuthor">
-          Author: <b>Iqbal</b>{" "}
+          Author:{" "}
+          <Link to={`/posts/?username=${post.username}`}>
+            <b>{post.username}</b>
+          </Link>{" "}
         </span>
-        <span>Date: 4 days ago</span>
+        <span>Date: {new Date(post.createdAt).toDateString()}</span>
       </div>
-      <p className="singlePostDescription">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-        quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-        Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi eos!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-        quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-        Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi eos!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-        quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-        Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi eos!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-        quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-        Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi eos!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-        quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-        Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi eos!
-      </p>
+      <p className="singlePostDescription">{post.description}</p>
     </div>
   );
 }

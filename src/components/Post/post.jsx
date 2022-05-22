@@ -1,5 +1,6 @@
 import React from "react";
 import "./post.css";
+
 import { Link } from "react-router-dom";
 function Post({ post }) {
   return (
@@ -9,7 +10,7 @@ function Post({ post }) {
       )}
       <div className="postInfoContainer">
         <span className="postTitle">
-          <Link to={`/post/${post._id}`}>{post.title}</Link>
+          <Link to={`/posts/${post._id}`}>{post.title}</Link>
         </span>
         <ul className="postCategories">
           {post.categories.map((el, i) => {
