@@ -1,6 +1,7 @@
 import React from "react";
 import "./post.css";
-function Post() {
+function Post({ post }) {
+  console.log("POST", post);
   return (
     <div className="postContainer">
       <img
@@ -8,25 +9,19 @@ function Post() {
         alt="postImage"
       />
       <div className="postInfoContainer">
-        <span className="postTitle">Hi i am a blog post</span>
+        <span className="postTitle">{post.title}</span>
         <ul className="postCategories">
-          <li className="postCategoriesItem">#Music</li>
-          <li className="postCategoriesItem">#Life</li>
-          <li className="postCategoriesItem">#Animal</li>
+          {post.categories.map((el) => {
+            return <li className="postCategoriesItem">{`#${el}`}</li>;
+          })}
+
+          {/* <li className="postCategoriesItem">#Life</li>
+          <li className="postCategoriesItem">#Animal</li> */}
         </ul>
         <hr />
-        <span className="postDate"> 1 hour ago</span>
+        <span className="postDate">{new Date(post.createdAt)}</span>
       </div>
-      <p className="postDescription">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-        dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-        ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-        quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-        arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-        Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
-        dapibus.{" "}
-      </p>
+      <p className="postDescription">{post.description}</p>
     </div>
   );
 }

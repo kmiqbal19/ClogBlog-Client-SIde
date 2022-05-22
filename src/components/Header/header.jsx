@@ -13,7 +13,7 @@ function Header() {
       </p>
       <div className="headerTextContainer">
         <p className="typingText">
-          <Typical
+          {/* <Typical
             steps={[
               "create a blog..",
               4000,
@@ -23,7 +23,7 @@ function Header() {
               4000,
             ]}
             loop={Infinity}
-          />
+          /> */}
         </p>
       </div>
     </div>

@@ -1,18 +1,13 @@
 import React from "react";
 import Post from "../Post/post";
 import "./posts.css";
-function Posts() {
+function Posts({ posts }) {
+  console.log("POSTS", posts);
   return (
     <div className="postsContainer">
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {posts.map((post) => {
+        return <Post key={post._id} post={post} />;
+      })}
     </div>
   );
 }
