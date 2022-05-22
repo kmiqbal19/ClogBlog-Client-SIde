@@ -1,0 +1,51 @@
+div.signupPageContainer {
+  background: linear-gradient(
+      rgba(138, 133, 133, 0.442),
+      rgba(255, 255, 255, 0.237)
+    ),
+    url("https://i.ibb.co/YZmSnRX/kevin-bhagat-z-NRITe8-NPq-Y-unsplash.jpg");
+  background-size: cover;
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form.signupForm {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 5vh 4vw;
+  width: 30%;
+  background-color: rgba(175, 175, 175, 0.321);
+  /* border-radius: 1rem; */
+  border: 1px solid rgba(115, 114, 114, 0.181);
+  backdrop-filter: blur(10px);
+}
+form.signupForm > label {
+  margin: 0.7rem 0;
+}
+.signupInput {
+  padding: 0.8rem;
+  background-color: white;
+  border: none;
+
+  font-size: 0.9rem;
+  color: gray;
+}
+.signupInput:focus {
+  outline: none;
+}
+.signupButton {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border: none;
+  background-color: #42c2ff;
+  color: rgb(247, 243, 243);
+  cursor: pointer;
+}
+.signupButton:hover {
+  background-color: #51d0dc;
+}

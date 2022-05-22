@@ -23,6 +23,9 @@ function LoginPage() {
           placeholder="Enter your password..."
         />
         <button className="loginButton">Login</button>
+        <span className="forgotPassLink">
+          Forgot password? Click <Link to="/forgotPassword">here</Link>
+        </span>
         <span className="signupLink">
           Do not have account? <Link to="/signup">Signup</Link> here.
         </span>
