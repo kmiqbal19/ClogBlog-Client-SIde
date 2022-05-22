@@ -12,19 +12,17 @@ function Header() {
         <span>_</span>
       </p>
       <div className="headerTextContainer">
-        <p className="typingText">
-          {/* <Typical
-            steps={[
-              "create a blog..",
-              4000,
-              "share post..",
-              4000,
-              "Sign Up to get access..",
-              4000,
-            ]}
-            loop={Infinity}
-          /> */}
-        </p>
+        <Typical
+          steps={[
+            "create a blog..",
+            4000,
+            "share post..",
+            4000,
+            "Sign Up to get access..",
+            4000,
+          ]}
+          loop={Infinity}
+        />
       </div>
     </div>
   );

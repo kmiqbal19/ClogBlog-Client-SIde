@@ -2,7 +2,6 @@ import React from "react";
 import Post from "../Post/post";
 import "./posts.css";
 function Posts({ posts }) {
-  console.log("POSTS", posts);
   return (
     <div className="postsContainer">
       {posts.map((post) => {

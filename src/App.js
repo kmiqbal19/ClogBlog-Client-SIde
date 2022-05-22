@@ -12,7 +12,7 @@ function App() {
       <TopBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/singlepost" element={<SinglePost />} />
+        <Route path="/post/:id" element={<SinglePost />} />
         <Route path="/write" element={<WritePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
