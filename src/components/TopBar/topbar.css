@@ -107,3 +107,6 @@ div.topBar__right ul li {
 .loginButtonTopbar {
   color: rgb(36, 7, 7);
 }
+.logoutButton {
+  cursor: pointer;
+}

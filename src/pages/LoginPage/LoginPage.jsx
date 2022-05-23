@@ -8,7 +8,7 @@ function LoginPage() {
   const passwordRef = useRef(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user, dispatch, isFetching } = useContext(Context);
+  const { fetchError, dispatch, isFetching } = useContext(Context);
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
@@ -18,12 +18,15 @@ function LoginPage() {
         password: passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.data.user });
+      emailRef.current.value = "";
+      passwordRef.current.value = "";
+      setEmail("");
+      setPassword("");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };
-  console.log(user);
-  console.log(isFetching);
+
   return (
     <div className="loginPageContainer">
       <form className="loginForm" onSubmit={handleSubmit}>
@@ -54,6 +57,11 @@ function LoginPage() {
         >
           Login
         </button>
+        {fetchError && (
+          <span style={{ marginTop: "7px", color: "red" }}>
+            Incorrect password or email address!
+          </span>
+        )}
         <span className="forgotPassLink">
           Forgot password? Click <Link to="/forgotPassword">here</Link>
         </span>
