@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./topbar.css";
 function TopBar() {
-  const user = true;
+  const user = false;
   return (
     <div className="topBar">
       <div className="topBarElement topBar__left">
@@ -45,7 +45,7 @@ function TopBar() {
           <ul className="topBarList">
             <i className="fa-solid fa-user"></i>
             <li className="topBarList__item">
-              <Link className="loginButton" to="/login">
+              <Link className="loginButtonTopbar" to="/login">
                 LOGIN
               </Link>
             </li>

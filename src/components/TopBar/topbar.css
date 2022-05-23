@@ -88,7 +88,7 @@ div.topBar__right ul {
 div.topBar__right ul:hover {
   background-color: rgb(61, 16, 16);
 }
-div.topBar__right ul:hover .loginButton {
+div.topBar__right ul:hover .loginButtonTopbar {
   color: #f5f0e7;
 }
 div.topBar__right ul:hover i {
@@ -104,6 +104,6 @@ div.topBar__right ul i {
 div.topBar__right ul li {
   margin-left: 0.5rem;
 }
-div.topBar__right ul li a {
+.loginButtonTopbar {
   color: rgb(36, 7, 7);
 }
