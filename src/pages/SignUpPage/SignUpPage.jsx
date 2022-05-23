@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "./SignUpPage.css";
+
 function SignUpPage() {
   const usernameRef = useRef(null);
   const emailRef = useRef(null);
@@ -16,19 +16,25 @@ function SignUpPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Post the form data
       const res = await axios.post("/users/signup", {
         username,
         email,
         password,
         passwordConfirm,
       });
-      console.log(res);
+      // Delete the input values
+      usernameRef.current.value = "";
+      emailRef.current.value = "";
+      passwordRef.current.value = "";
+      passwordConfRef.current.value = "";
+      // Change window location to login page
+      res.data && window.location.replace("/login");
     } catch (err) {
-      console.log(err.message);
       setError(true);
     }
   };
-  // console.log(usernameRef.current.value);
+  // Using this useEffect for checking available username
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`/users/?username=${username}`);
@@ -38,11 +44,12 @@ function SignUpPage() {
         setAvailable(true);
       }
     };
-    username.length > 4 && fetchUser();
+    username.length >= 3 && fetchUser();
   }, [username]);
   return (
     <div className="signupPageContainer">
       <form className="signupForm" onSubmit={handleSubmit}>
+        <img src="https://i.ibb.co/yBwmZh6/default.png" alt="avatar" />
         <label>Username</label>
         <input
           ref={usernameRef}
@@ -52,7 +59,7 @@ function SignUpPage() {
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        {username.length > 4 && (
+        {username.length >= 3 && (
           <span
             className="signupPassText"
             style={{ color: `${available ? "green" : "red"}` }}
@@ -76,7 +83,7 @@ function SignUpPage() {
           placeholder="Enter your password..."
           onChange={(e) => setPassword(e.target.value)}
         />
-        {password.length > 1 && password.length < 8 && (
+        {password.length > 0 && password.length < 8 && (
           <span className="signupPassText">
             Password must be atleast 8 character long!
           </span>
@@ -89,12 +96,20 @@ function SignUpPage() {
           placeholder="Confirm your password..."
           onChange={(e) => setPasswordConfirm(e.target.value)}
         />
-        {password !== passwordConfirm && (
-          <span className="signupPassText">
+        {passwordConfirm.length > 0 && password !== passwordConfirm && (
+          <span className="signupPassConfText">
             Password confirm is not equal to given password!
           </span>
         )}
-        <button className="signupButton">Sign Up</button>
+        <button
+          className="signupButton"
+          disabled={!username || !email || !password || !passwordConfirm}
+        >
+          Sign Up
+        </button>
+        {error && (
+          <span className="signupErrorText">Something went wrong!!!</span>
+        )}
       </form>
     </div>
   );
