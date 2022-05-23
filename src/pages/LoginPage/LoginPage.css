@@ -56,6 +56,10 @@ form.loginForm > label {
 .loginButton:hover {
   background-color: #51d0dc;
 }
+.loginButton:disabled {
+  cursor: not-allowed;
+  background-color: rgb(255, 0, 106);
+}
 .signupLink {
   margin-top: 2vh;
 }
