@@ -44,7 +44,7 @@ function WritePage() {
     try {
       const res = await axios.post("/posts", newPost);
       console.log(res);
-      // res.data && window.location.replace(`/posts/${res.data.data.post._id}`);
+      res.data && window.location.replace(`/posts/${res.data.data.post._id}`);
     } catch (err) {
       console.log(err);
     }
