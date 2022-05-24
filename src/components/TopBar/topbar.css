@@ -75,6 +75,7 @@ div.topBar__right img {
   height: 40px;
   margin: 0.8rem;
   border-radius: 50%;
+  object-fit: cover;
 }
 div.topBar__right ul {
   display: flex;

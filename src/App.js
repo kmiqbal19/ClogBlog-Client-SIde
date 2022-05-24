@@ -6,6 +6,7 @@ import Home from "./pages/homepage/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import PostsPage from "./pages/PostsPage/postsPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
+import UserSettingsPage from "./pages/userSettingPage/userSettingPage";
 import WritePage from "./pages/Writepage/WritePage";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/write" element={<WritePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/user-settings" element={<UserSettingsPage />} />
       </Routes>
     </>
   );

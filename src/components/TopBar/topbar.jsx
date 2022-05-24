@@ -46,10 +46,10 @@ function TopBar() {
       </div>
       <div className="topBarElement topBar__right">
         {user ? (
-          <Link to="/me">
+          <Link to="/user-settings">
             <img
               className="loggedInUserImage"
-              src={`http://localhost:5000/${user.photo}`}
+              src={`http://localhost:5000/users/${user.photo}`}
               alt="userImage"
             />
             <span>LISA</span>

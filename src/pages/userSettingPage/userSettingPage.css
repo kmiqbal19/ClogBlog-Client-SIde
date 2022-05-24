@@ -1,0 +1,65 @@
+div.settingsPageContainer {
+  width: 100%;
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background: linear-gradient(
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.4)
+      ),
+      url("https://i.ibb.co/9YJWzrd/dose-media-b-U6-Jyh-SI6zo-unsplash.jpg"); */
+  background: url("https://i.ibb.co/9YJWzrd/dose-media-b-U6-Jyh-SI6zo-unsplash.jpg");
+  background-size: cover;
+}
+form.userSettingsForm {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 5vh 4vw;
+  width: 30%;
+  background-color: rgba(175, 175, 175, 0.321);
+  /* border-radius: 1rem; */
+  border: 1px solid rgba(115, 114, 114, 0.181);
+  backdrop-filter: blur(15px);
+}
+form.userSettingsForm img {
+  width: 6vw;
+  height: 6vw;
+  align-self: center;
+  margin-bottom: 1vh;
+  border-radius: 50%;
+  object-fit: cover;
+}
+form.userSettingsForm > label {
+  margin: 0.7rem 0;
+}
+
+.userSettingsInput {
+  padding: 0.8rem;
+  background-color: white;
+  border: none;
+  /* border-radius: 0.5rem; */
+  font-size: 0.9rem;
+  color: gray;
+}
+.userSettingsInput:focus {
+  outline: none;
+}
+.userSettingsUpdateButton {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border: none;
+  background-color: #42c2ff;
+  color: rgb(247, 243, 243);
+  cursor: pointer;
+}
+.userSettingsUpdateButton:hover {
+  background-color: #51d0dc;
+}
+.userSettingsUpdateButton:disabled {
+  cursor: not-allowed;
+  background-color: rgb(255, 0, 106);
+}

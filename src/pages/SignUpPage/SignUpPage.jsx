@@ -3,10 +3,12 @@ import axios from "axios";
 import "./SignUpPage.css";
 
 function SignUpPage() {
+  const fullnameRef = useRef(null);
   const usernameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const passwordConfRef = useRef(null);
+  const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,12 +20,14 @@ function SignUpPage() {
     try {
       // Post the form data
       const res = await axios.post("/users/signup", {
+        fullname,
         username,
         email,
         password,
         passwordConfirm,
       });
       // Delete the input values
+      fullnameRef.current.value = "";
       usernameRef.current.value = "";
       emailRef.current.value = "";
       passwordRef.current.value = "";
@@ -50,6 +54,14 @@ function SignUpPage() {
     <div className="signupPageContainer">
       <form className="signupForm" onSubmit={handleSubmit}>
         <img src="https://i.ibb.co/yBwmZh6/default.png" alt="avatar" />
+        <label>Full Name</label>
+        <input
+          ref={fullnameRef}
+          className="signupInput"
+          type="text"
+          placeholder="e.g. John Wonder"
+          onChange={(e) => setFullname(e.target.value)}
+        />
         <label>Username</label>
         <input
           ref={usernameRef}

@@ -15,7 +15,7 @@ function PostsPage() {
       const res = await axios.get(
         search ? "/posts" + search : `/posts/?search=${query}`
       );
-
+      console.log(res.data.data.posts.length);
       setPosts(res.data.data.posts);
     };
     if (query.length > 2 || query.length === 0) fetchPosts();
