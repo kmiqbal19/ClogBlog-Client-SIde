@@ -30,10 +30,8 @@ function WritePage() {
     };
 
     if (file) {
-      console.log(file);
-
       const data = new FormData();
-      const filename = Date.now() + file.name;
+      const filename = `post-${user._id}-${Date.now()}-${file.name}`;
       data.append("name", filename);
       data.append("file", file);
       newPost.photo = filename;
@@ -69,7 +67,7 @@ function WritePage() {
               type="checkbox"
               id="musicCatg"
               name="music"
-              value="Music"
+              value="music"
               onChange={handleCategory}
             />
             Music
@@ -81,7 +79,7 @@ function WritePage() {
               type="checkbox"
               id="lifeCatg"
               name="life"
-              value="Life"
+              value="life"
               onChange={handleCategory}
             />
             Life
@@ -94,7 +92,7 @@ function WritePage() {
               type="checkbox"
               id="animalCatg"
               name="animal"
-              value="Animal"
+              value="animal"
               onChange={handleCategory}
             />
             Animal
@@ -106,7 +104,7 @@ function WritePage() {
               type="checkbox"
               id="scienceCatg"
               name="science"
-              value="Science"
+              value="science"
               onChange={handleCategory}
             />
             Science
@@ -118,7 +116,7 @@ function WritePage() {
               type="checkbox"
               id="technoCatg"
               name="technology"
-              value="Technology"
+              value="technology"
               onChange={handleCategory}
             />
             Technology

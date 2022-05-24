@@ -10,7 +10,6 @@ function PostsPage() {
   const { search } = useLocation();
 
   useEffect(() => {
-    console.log(catg);
     const fetchPosts = async () => {
       // const res = await axios.get("/posts" + search + `/?search=${query}`);
       const res = await axios.get(

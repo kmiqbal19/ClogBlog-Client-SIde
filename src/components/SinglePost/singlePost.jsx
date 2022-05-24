@@ -1,13 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "../../Context/Context";
 import { useLocation, Link } from "react-router-dom";
 import "./singlePost.css";
 
 function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
-
-  const user = true;
+  const { user } = useContext(Context);
   const [post, setPost] = useState({});
   const [catg, setCatg] = useState([]);
   const [edit, setEdit] = useState(false);
@@ -19,8 +19,19 @@ function SinglePost() {
     };
 
     fetch();
-  }, []);
+  }, [path]);
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.delete(`/posts/${post._id}`, {
+        data: { username: user.username },
+      });
 
+      window.location.replace("/");
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
   return (
     <div className="singlePostContainer">
       {post.photo && (
@@ -31,13 +42,15 @@ function SinglePost() {
       )}
       <h1 className="singlePostTitleContainer">
         {post.title}
-        <div className="singlePostEditOptions">
-          <i
-            className="postEditIcon fa-solid fa-pen-nib"
-            onClick={() => setEdit(true)}
-          ></i>
-          <i className="postEditIcon fa-solid fa-trash"></i>
-        </div>
+        {post.username === user?.username && (
+          <div className="singlePostEditOptions">
+            <i className="postEditIcon fa-solid fa-pen-nib"></i>
+            <i
+              className="postEditIcon fa-solid fa-trash"
+              onClick={handleDelete}
+            ></i>
+          </div>
+        )}
       </h1>
       <div className="singlePostCategoryContainer">
         <span>Category: </span>
