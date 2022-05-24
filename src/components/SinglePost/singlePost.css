@@ -54,7 +54,7 @@ div.singlePostCategoryContainer {
   flex-direction: column;
 }
 
-form.singlePostCategorySelection {
+.singlePostCategorySelection {
   /* border: 1px solid red; */
   width: 80%;
 

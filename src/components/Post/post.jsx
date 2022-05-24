@@ -6,7 +6,10 @@ function Post({ post }) {
   return (
     <div className="postContainer">
       {post.photo && (
-        <img src={`http://localhost:5000/${post.photo}`} alt="postImage" />
+        <img
+          src={`http://localhost:5000/posts/${post.photo}`}
+          alt="postImage"
+        />
       )}
       <div className="postInfoContainer">
         <span className="postTitle">
