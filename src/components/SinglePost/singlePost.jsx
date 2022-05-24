@@ -81,7 +81,10 @@ function SinglePost() {
       console.log(err.message);
     }
   };
-
+  const handleCancel = (e) => {
+    e.preventDefault();
+    setUpdateMode(false);
+  };
   return (
     <div className="singlePostContainer">
       {post.photo && !updateMode && (
@@ -237,9 +240,12 @@ function SinglePost() {
         <p className="singlePostDescription">{post.description}</p>
       )}
       {updateMode && (
-        <button type="submit" onClick={handleUpdate}>
-          Update Changes
-        </button>
+        <>
+          <button type="submit" onClick={handleUpdate}>
+            Update Changes
+          </button>
+          <button onClick={handleCancel}>Cancel</button>
+        </>
       )}
     </div>
   );
