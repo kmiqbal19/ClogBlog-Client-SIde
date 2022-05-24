@@ -26,9 +26,11 @@ function TopBar() {
           <li className="topBarList__item">
             <Link to="/posts">POSTS</Link>
           </li>
-          <li className="topBarList__item">
-            <Link to="/write">WRITE</Link>
-          </li>
+          {user && (
+            <li className="topBarList__item">
+              <Link to="/write">WRITE</Link>
+            </li>
+          )}
           <li className="topBarList__item">
             <Link to="/about">ABOUT</Link>
           </li>
@@ -58,6 +60,11 @@ function TopBar() {
             <li className="topBarList__item">
               <Link className="loginButtonTopbar" to="/login">
                 LOGIN
+              </Link>
+            </li>
+            <li className="topBarList__item">
+              <Link className="loginButtonTopbar" to="/signup">
+                SIGNUP
               </Link>
             </li>
           </ul>

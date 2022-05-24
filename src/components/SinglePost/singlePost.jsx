@@ -24,7 +24,10 @@ function SinglePost() {
   return (
     <div className="singlePostContainer">
       {post.photo && (
-        <img src={`http://localhost:5000/${post.photo}`} alt="postPicture" />
+        <img
+          src={`http://localhost:5000/posts/${post.photo}`}
+          alt="postPicture"
+        />
       )}
       <h1 className="singlePostTitleContainer">
         {post.title}
