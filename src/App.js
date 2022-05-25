@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import SinglePost from "./components/SinglePost/singlePost";
 import TopBar from "./components/TopBar/topbar";
+import ChangePassPage from "./pages/ChangePassPage/ChangePassPage";
 import Home from "./pages/homepage/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import PostsPage from "./pages/PostsPage/postsPage";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/user-settings" element={<UserSettingsPage />} />
+        <Route path="/change-password" element={<ChangePassPage />} />
       </Routes>
     </>
   );

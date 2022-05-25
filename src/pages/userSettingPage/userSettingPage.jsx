@@ -11,6 +11,7 @@ function UserSettingsPage() {
   const [email, setEmail] = useState("");
   const [fullname, setFullname] = useState("");
   const [file, setFile] = useState(null);
+  const [error, setError] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const updatedUserInfo = {
@@ -38,7 +39,10 @@ function UserSettingsPage() {
       res.data && window.location.replace(`/posts/${res.data.data.post._id}`);
     } catch (err) {
       console.log(err);
+      setError(true);
     }
+    emailRef.current.value = "";
+    fullnameRef.current.value = "";
   };
 
   return (
@@ -78,6 +82,11 @@ function UserSettingsPage() {
         >
           Update
         </button>
+        {error && (
+          <p style={{ marginTop: "5px", color: "red", fontSize: "1rem" }}>
+            Something went wrong! Please try again later!
+          </p>
+        )}
         <Link to="/change-password">Change Password</Link>
       </form>
     </div>
