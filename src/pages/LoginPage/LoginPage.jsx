@@ -8,6 +8,7 @@ function LoginPage() {
   const passwordRef = useRef(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [login, setLogin] = useState(false);
   const { fetchError, dispatch, isFetching } = useContext(Context);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +23,10 @@ function LoginPage() {
       passwordRef.current.value = "";
       setEmail("");
       setPassword("");
+      setLogin(true);
+      setTimeout(() => {
+        window.location.replace("/write");
+      }, 2000);
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
     }
@@ -30,6 +35,17 @@ function LoginPage() {
   return (
     <div className="loginPageContainer">
       <form className="loginForm" onSubmit={handleSubmit}>
+        {login && (
+          <p
+            style={{
+              marginBottom: "1rem",
+              color: "green",
+              textAlign: "center",
+            }}
+          >
+            You are successfully logged in!
+          </p>
+        )}
         <img
           src="https://i.ibb.co/Gdx9GLD/kisspng-united-states-avatar-organization-information-user-avatar-5ac20804cee8a0-5851027215226654768.png"
           alt="defaultUser"
@@ -62,9 +78,9 @@ function LoginPage() {
             Incorrect password or email address!
           </span>
         )}
-        <span className="forgotPassLink">
+        {/* <span className="forgotPassLink">
           Forgot password? Click <Link to="/forgotPassword">here</Link>
-        </span>
+        </span> */}
         <span className="signupLink">
           Do not have account? <Link to="/signup">Signup</Link> here.
         </span>

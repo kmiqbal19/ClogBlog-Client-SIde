@@ -1,10 +1,10 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../Context/Context";
 import axios from "axios";
 import "./userSettingPage.css";
 function UserSettingsPage() {
-  const { user } = useContext(Context);
+  const { user, dispatch } = useContext(Context);
   const emailRef = useRef(null);
   const fullnameRef = useRef(null);
 
@@ -12,8 +12,10 @@ function UserSettingsPage() {
   const [fullname, setFullname] = useState("");
   const [file, setFile] = useState(null);
   const [error, setError] = useState(false);
+  const [update, setUpdate] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch({ type: "UPDATE_START" });
     const updatedUserInfo = {
       email,
       fullname,
@@ -35,25 +37,44 @@ function UserSettingsPage() {
     }
     try {
       const res = await axios.patch("/users/updateMe", updatedUserInfo);
-      console.log(res.data);
-      res.data && window.location.replace("/write");
+      dispatch({ type: "UPDATE_SUCCESS", payload: res.data.data.updatedUser });
+      setUpdate(true);
+      setTimeout(() => {
+        window.location.replace("/");
+      }, 2000);
     } catch (err) {
       console.log(err);
+      dispatch({ type: "UPDATE_FAILURE" });
       setError(true);
     }
     emailRef.current.value = "";
     fullnameRef.current.value = "";
+    setEmail("");
+    setFullname("");
+    setFile(null);
   };
 
   return (
     <div className="settingsPageContainer">
       <form className="userSettingsForm" onSubmit={handleSubmit}>
-        {!file && (
+        {update && (
+          <p
+            style={{
+              color: "green",
+              marginBottom: "1rem",
+              textAlign: "center",
+            }}
+          >
+            Your profile has been updated successfully!{" "}
+          </p>
+        )}
+        {!file && user && (
           <img
             src={`http://localhost:5000/users/${user.photo}`}
             alt="defaultUser"
           />
         )}
+
         {file && file.type.startsWith("image") && (
           <img src={URL.createObjectURL(file)} alt="uploadedFile" />
         )}
@@ -62,7 +83,7 @@ function UserSettingsPage() {
         <input
           className="userSettingsInput"
           type="text"
-          placeholder="Enter your full name..."
+          placeholder={user.fullname}
           ref={fullnameRef}
           onChange={(e) => setFullname(e.target.value)}
         />
@@ -70,7 +91,7 @@ function UserSettingsPage() {
         <input
           className="userSettingsInput"
           type="email"
-          placeholder="Enter your email..."
+          placeholder={user.email}
           ref={emailRef}
           onChange={(e) => setEmail(e.target.value)}
         />
