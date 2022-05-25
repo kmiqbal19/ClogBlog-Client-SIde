@@ -36,7 +36,7 @@ function UserSettingsPage() {
     try {
       const res = await axios.patch("/users/updateMe", updatedUserInfo);
       console.log(res.data);
-      res.data && window.location.replace(`/posts/${res.data.data.post._id}`);
+      res.data && window.location.replace("/write");
     } catch (err) {
       console.log(err);
       setError(true);

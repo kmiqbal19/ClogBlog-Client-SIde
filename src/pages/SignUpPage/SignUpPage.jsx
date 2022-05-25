@@ -115,7 +115,9 @@ function SignUpPage() {
         )}
         <button
           className="signupButton"
-          disabled={!username || !email || !password || !passwordConfirm}
+          disabled={
+            !fullname || !username || !email || !password || !passwordConfirm
+          }
         >
           Sign Up
         </button>
