@@ -1,9 +1,46 @@
 /* Import google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Koulen&family=Rubik+Glitch&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@300&family=Prata&display=swap");
+
 div.header {
   width: 100vw;
-  height: 70vh;
-  /* border: 3px solid red; */
+  height: 100%;
+}
+.headerWelcome {
+  margin-bottom: 5rem;
+}
+.headerWelcome p {
+  text-align: center;
+  padding-top: 16vh;
+  margin-bottom: 16vh;
+  font-size: calc(2vw + 1rem);
+  position: relative;
+
+  font-family: "Cormorant", serif;
+  color: rgba(221, 221, 221, 0.631);
+  mix-blend-mode: difference;
+}
+.headerWelcome p::after {
+  content: "";
+  width: 8%;
+  height: 0.1rem;
+  background-color: rgba(221, 221, 221, 0.631);
+  position: absolute;
+  bottom: -30%;
+  left: 45%;
+}
+.headerWelcome p::before {
+  content: "";
+  width: 8%;
+  height: 0.1rem;
+  background-color: rgba(221, 221, 221, 0.631);
+  position: absolute;
+  top: 35%;
+  left: 45%;
+}
+.headerVideoContainer {
+  width: 100%;
+  height: 35vh;
   position: relative;
 }
 .headerVideo {
@@ -30,13 +67,13 @@ div.header {
   height: 100%;
 }
 .headerTextContainer p {
-  font-size: calc(5vw + 3rem);
+  font-size: calc(3vw + 3rem);
 
   letter-spacing: 5px;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
-  font-family: "Koulen", cursive;
-  /* font-family: "Rubik Glitch", cursive; */
+
+  font-family: "Cormorant", serif;
   mix-blend-mode: difference;
 }
 .headerTextCoder {
@@ -46,7 +83,8 @@ div.header {
   font-size: calc(3vw + 3rem);
   color: white;
   mix-blend-mode: difference;
-  font-weight: "Rubik Glitch", cursive;
+
+  font-family: "Cormorant", serif;
   font-weight: bold;
 }
 .headerTextCoder span {
