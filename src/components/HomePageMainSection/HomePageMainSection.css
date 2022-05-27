@@ -64,24 +64,92 @@ div.homePageMainPostsContainer {
 div.homePostContainer {
   display: flex;
   padding: 4vh;
-  border: 2px solid red;
+  backdrop-filter: blur(5px);
   margin: 2vw;
+  background-color: rgba(72, 69, 69, 0.214);
+  transition: all 0.7s ease-in-out;
+}
+div.homePostContainer:hover {
+  box-shadow: 2px 2px 3px rgba(255, 255, 255, 0.259);
 }
 div.homePostContainer img {
   width: calc(500px + 6vw);
   height: calc(300px + 5vh);
   margin-right: calc(1rem + 1vw);
   object-fit: cover;
+  filter: sepia();
+  transition: all 1s ease;
+}
+div.homePostContainer img:hover {
+  filter: none;
 }
 div.homePostContainer__Items {
   padding: 1vw 3vw;
+  font-family: "Forum", cursive;
 }
 div.homePostContainer__Items ul {
   display: flex;
+}
+div.homePostContainer__Items ul li {
+  color: white;
+  padding: 0.3rem 0.8rem;
+
+  margin: 0.5rem 0.8rem 0.5rem 0rem;
+  border-radius: 0.8rem;
+  background-color: rgba(109, 105, 105, 0.344);
+}
+div.homePostContainer__Items ul li:hover {
+  background-color: rgba(115, 13, 13, 0.615);
+  color: rgb(226, 225, 225);
 }
 div.homePostContainer__Items p {
   color: white;
 }
 p.homePostContainer__Items--Title {
-  font-family: "Forum", cursive;
+  font-size: calc(1rem + 0.5vw);
+}
+p.homePostContainer__Items--Author {
+  margin: 0.5rem 0rem;
+}
+p.homePostContainer__Items--Author a {
+  font-weight: bold;
+  color: white;
+}
+p.homePostContainer__Items--Author a:hover {
+  color: rgb(134, 38, 30);
+}
+p.homePostContainer__Items--Description {
+  line-height: 1.3;
+  text-align: justify;
+  margin: 0.8rem 0rem;
+}
+p.homePostContainer__Items--Date {
+  font-style: italic;
+}
+a.homeSeeMore {
+  text-align: center;
+  font-size: calc(1vw + 1rem);
+  font-family: "Raleway", sans-serif;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.2rem;
+  transition: all 0.5s ease;
+}
+
+a.homeSeeMore:hover {
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+}
+footer.homeFooter {
+  height: 6vh;
+  width: 100%;
+  /* background-color: rgb(78, 6, 6); */
+  background-image: linear-gradient(to bottom, rgba(47, 4, 4), rgb(84, 5, 5));
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer.homeFooter p {
+  color: rgba(226, 225, 225, 0.851);
 }
