@@ -17,10 +17,12 @@ function HomePageMainSection() {
       return (
         <div key={`homePost${index}`} className="homePostContainer">
           <Link to={`/posts/${post._id}`}>
-            <img
-              src={`http://localhost:5000/posts/${post.photo}`}
-              alt="post-img"
-            />
+            <div className="homePostImage">
+              <img
+                src={`http://localhost:5000/posts/${post.photo}`}
+                alt="post-img"
+              />
+            </div>
           </Link>
           <div className="homePostContainer__Items">
             <p className="homePostContainer__Items--Title">{post.title}</p>
@@ -44,12 +46,12 @@ function HomePageMainSection() {
                 );
               })}
             </ul>
-            <p className="homePostContainer__Items--Description">
-              {post.description}
-            </p>
             <p className="homePostContainer__Items--Date">
               {/* Posted on <span>{new Date(post.createdAt).toDateString()}</span> */}
               {new Date(post.createdAt).toDateString()}
+            </p>
+            <p className="homePostContainer__Items--Description">
+              {post.description}
             </p>
           </div>
         </div>
