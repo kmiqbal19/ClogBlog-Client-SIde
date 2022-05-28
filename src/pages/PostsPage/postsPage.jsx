@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Post from "../../components/Post/post";
 import "./postsPage.css";
 function PostsPage() {
   const { search } = useLocation();
+  const searchInputRef = useRef(null);
   const [posts, setPosts] = useState([]);
   const [query, setQuery] = useState("");
   const [catg, setCatg] = useState("");
@@ -39,67 +40,86 @@ function PostsPage() {
       return p + 1;
     });
   };
+  const cancelSearch = () => {
+    setQuery("");
+    console.log(searchInputRef.current.value);
+    searchInputRef.current.value = "";
+  };
   return (
     <>
       {!search && (
         <div className="searchCatContainer">
           <div className="searchBarContainer">
             <input
+              ref={searchInputRef}
               type="text"
               placeholder="Search..."
               className="searchBar"
               onChange={(e) => setQuery(e.target.value)}
             />
-            <i className="searchBarIcon fa-solid fa-xmark"></i>
+            <i
+              className="searchBarIcon fa-solid fa-xmark"
+              onClick={cancelSearch}
+            ></i>
             <i className="searchBarIcon fa-solid fa-magnifying-glass"></i>
           </div>
-          <select onChange={(e) => setCatg(e.target.value)}>
-            <option defaultValue="">None</option>
-            <option value="music">Music</option>
-            <option value="guitar">Guitar</option>
-            <option value="pizza">pizza</option>
-          </select>
+          <label>
+            Choose Category:
+            <select onChange={(e) => setCatg(e.target.value)}>
+              <optgroup label="Category">
+                <option defaultValue value="">
+                  None{" "}
+                </option>
+                <option value="music">Music</option>
+                <option value="guitar">Guitar</option>
+                <option value="pizza">pizza</option>
+              </optgroup>
+            </select>
+          </label>
         </div>
       )}
       <div className="postsContainer">
+        {posts.length === 0 && (
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "2rem",
+              color: "rgba( 159,142,125,0.99)",
+            }}
+          >
+            No Search Results...
+          </p>
+        )}
         {posts.map((post) => {
           return <Post key={post._id} post={post} />;
         })}
       </div>
-      <footer>
-        <p>Page: {page}</p>
-        <p>Page Count: {pageCount} </p>
+      <footer className="postsFooter">
+        {/* <p style={{ color: "white" }}>Page: {page}</p>
+        <p style={{ color: "white" }}>Page Count: {pageCount} </p> */}
         <button
-          disabled={page === 1}
+          className="posts-btn btn__prev"
+          disabled={page === 1 || posts.length === 0}
           onClick={handlePreviousPage}
-          style={{
-            margin: "2rem",
-            backgroundColor: "red",
-            padding: "1rem",
-            color: "white",
-          }}
         >
           Previous
         </button>
+        <select value={page} onChange={(e) => setPage(e.target.value)}>
+          <optgroup label="Page">
+            {Array(pageCount)
+              .fill(null)
+              .map((_, i) => {
+                return <option key={`page${i + 1}`}>{i + 1}</option>;
+              })}
+          </optgroup>
+        </select>
         <button
-          disabled={page === pageCount}
+          className="posts-btn btn__next"
+          disabled={page === pageCount || posts.length === 0}
           onClick={handleNextPage}
-          style={{
-            margin: "2rem",
-            padding: "1rem",
-            backgroundColor: "green",
-            color: "white",
-          }}
         >
           Next
         </button>
-        <select value={page} onChange={(e) => setPage(e.target.value)}>
-          {Array(pageCount)
-            .fill(null)
-            .map((_, i) => {
-              return <option key={`page${i + 1}`}>{i + 1}</option>;
-            })}
-        </select>
       </footer>
     </>
   );

@@ -13,7 +13,7 @@ function HomePageMainSection() {
     fetchPosts();
   }, []);
   const Posts = () => {
-    return posts.map((post, index) => {
+    return posts.splice(0, 3).map((post, index) => {
       return (
         <div key={`homePost${index}`} className="homePostContainer">
           <Link to={`/posts/${post._id}`}>
@@ -35,7 +35,7 @@ function HomePageMainSection() {
             <ul>
               {post.categories.map((el, i) => {
                 return (
-                  <Link to={`/posts/?cat=${el}`}>
+                  <Link key={`homePostCatgLink${i}`} to={`/posts/?cat=${el}`}>
                     <li
                       key={`homePostCatg${i}`}
                       className="homePostContainer__Items--Category"

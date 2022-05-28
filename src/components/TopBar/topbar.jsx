@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { Context } from "../../Context/Context";
 import "./topbar.css";
 function TopBar() {
+  const a = "mou khandakar";
+  console.log(a.split(" ")[0]);
   const [hamClicked, setHamClicked] = useState(false);
   const { user, dispatch } = useContext(Context);
 
@@ -69,7 +71,7 @@ function TopBar() {
                 src={`http://localhost:5000/users/${user.photo}`}
                 alt="userImage"
               />
-              {user && <span>{user.fullname.toUpperCase()}</span>}
+              {user && <span>{user.fullname.split(" ")[0].toUpperCase()}</span>}
             </NavLink>
           ) : (
             <ul className="topBarList">

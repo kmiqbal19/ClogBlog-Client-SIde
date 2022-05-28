@@ -1,12 +1,18 @@
 div.postsContainer {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   width: 100%;
-  min-height: 100%;
-  justify-content: center;
+  justify-content: center; */
+  display: grid;
+  gap: calc(1rem + 1vw);
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3vw;
+  min-height: 100vh;
 }
 div.searchCatContainer {
   display: flex;
+  align-items: center;
+  margin-top: 3vh;
 }
 div.searchBarContainer {
   position: relative;
@@ -23,14 +29,18 @@ div.searchBarContainer input {
   border: none;
   transition: all 0.5s ease;
 }
+div.searchBarContainer input::placeholder {
+  color: rgb(223, 180, 180);
+}
 .fa-xmark {
   position: absolute;
   top: 20%;
   right: 1rem;
   font-size: calc(0.8rem + 0.5vw);
   color: rgba(247, 202, 202, 0.323);
+  cursor: pointer;
 }
-.fa-magnifying-glass {
+.searchBarIcon.fa-magnifying-glass {
   position: absolute;
   top: 9px;
   left: 75px;
@@ -39,6 +49,55 @@ div.searchBarContainer input {
 }
 div.searchBarContainer input:focus {
   outline: none;
-  border-bottom: 5px solid rgba(210, 165, 54, 0.819);
+  border-bottom: 5px solid rgba(184, 47, 37, 0.819);
   width: calc(10vw + 10rem);
+}
+div.searchCatContainer label {
+  margin-left: 1rem;
+  color: rgb(223, 180, 180);
+}
+div.searchCatContainer select {
+  margin-left: 1rem;
+  padding: 0.2rem 2rem;
+  border: 1px solid rgba(176, 171, 171, 0.789);
+  border-radius: 5px;
+  background-color: rgba(67, 65, 46, 0.548);
+  color: rgb(247, 202, 202);
+}
+footer.postsFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button.posts-btn {
+  padding: 0.5rem 1rem;
+  margin: 1rem 3rem 2rem;
+  background-color: rgba(181, 39, 26, 0.658);
+  color: rgb(240, 212, 212);
+  width: calc(2rem + 5vw);
+  height: calc(2rem + 1vh);
+  cursor: pointer;
+  border: none;
+  font-size: calc(0.8rem + 0.5vh);
+}
+button.posts-btn:disabled {
+  cursor: not-allowed;
+  background-color: rgba(93, 70, 70, 0.628);
+}
+button.posts-btn:active {
+  border: 3px solid rgba(246, 255, 0, 0.77);
+}
+button.posts-btn:hover {
+  background-color: rgb(122, 122, 118);
+  color: rgb(53, 42, 42);
+}
+footer.postsFooter select {
+  margin: 1rem 0rem 2rem;
+  width: calc(2rem + 1vw);
+  height: calc(2rem + 1vh);
+  background-color: rgba(93, 70, 70, 0.628);
+  color: rgb(240, 212, 212);
+  font-size: calc(0.8rem + 0.5vh);
+  padding: 0rem 0.3rem;
+  border: none;
 }

@@ -1,18 +1,20 @@
 /* Import google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,500;1,400;1,500&family=Oleo+Script&display=swap");
+
 div.postContainer {
-  flex-basis: 20vw;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  margin: 3vw 3vw;
+
+  /* border: 1px solid rgb(228, 228, 228); */
+
+  height: calc(350px + 20vh);
 }
 
 div.postContainer img {
   width: 100%;
-  height: 60%;
+  height: 40%;
   border-radius: 5px;
   object-fit: cover;
+  filter: sepia();
 }
 div.postInfoContainer {
   display: flex;
@@ -20,36 +22,67 @@ div.postInfoContainer {
   align-items: center;
 }
 span.postTitle {
-  margin-top: 1vh;
   margin-bottom: calc(0.5vh + 0.5rem);
   font-size: calc(0.5vh + 1rem);
-  font-family: "Oleo Script", cursive;
+
+  text-transform: lowercase;
+  color: white;
+}
+.postTitle__link {
+  margin-top: 1.5vh;
+  text-align: center;
+}
+.postTitle__link::first-letter {
+  text-transform: uppercase;
 }
 ul.postCategories {
   width: 60%;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 1vh;
 }
 ul.postCategories li {
   font-family: "Josefin Sans", sans-serif;
+  padding: 0.3rem 0.7rem;
+  background-color: #676262;
+
+  /* border-radius: 0.3rem; */
 }
+ul.postCategories li:hover {
+  background-color: rgb(188, 111, 75);
+}
+ul.postCategories li a {
+  color: rgb(221, 198, 198);
+}
+
+div.postDateAndAuthorContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 1.5vh;
+  color: rgb(221, 198, 198);
+}
+
 span.postDate {
   margin: 0.5vh;
   font-family: "Josefin Sans", sans-serif;
   font-style: italic;
 }
+span.postAuthor b a {
+  color: rgb(221, 198, 198);
+}
 p.postDescription {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
   font-size: calc(1rem + 0.5vh);
-  line-height: 24px;
-  color: #444444;
-  margin-top: 15px;
-  overflow: hidden;
+  line-height: 1.2;
+  color: #5f5555;
+
   text-overflow: ellipsis;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-align: justify;
-  padding: 0rem 2rem;
+  padding: 1rem 1rem 0.15rem;
 }
