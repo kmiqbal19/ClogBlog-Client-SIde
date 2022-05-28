@@ -16,7 +16,7 @@ function App() {
   const { user } = useContext(Context);
   return (
     <>
-      {/* <TopBar /> */}
+      <TopBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/posts/:id" element={<SinglePost />} />

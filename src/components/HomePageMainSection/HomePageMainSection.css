@@ -119,6 +119,11 @@ div.homePostContainer__Items p {
 }
 p.homePostContainer__Items--Title {
   font-size: calc(1rem + 0.5vw);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 p.homePostContainer__Items--Author {
   margin: 1vh 0rem;
@@ -175,14 +180,6 @@ footer.homeFooter p {
   color: rgba(226, 225, 225, 0.851);
 }
 @media screen and (max-width: 1550px) {
-  p.homePostContainer__Items--Title {
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
   p.homePostContainer__Items--Description {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -197,6 +194,7 @@ footer.homeFooter p {
     height: calc(400px + 5vh);
     margin-right: calc(1rem + 1vw);
     overflow: hidden;
+    margin-top: 3vh;
   }
 
   p.homePostContainer__Items--Title {
@@ -250,6 +248,11 @@ footer.homeFooter p {
     font-size: calc(1rem + 1vw);
 
     letter-spacing: 3px;
+  }
+  p.homePostContainer__Items--Title {
+    font-size: calc(1rem + 1vw);
+    letter-spacing: 0.2rem;
+    text-align: center;
   }
 }
 @media screen and (max-width: 850px) {
