@@ -8,6 +8,7 @@ function TopBar() {
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+    setHamClicked(!hamClicked);
   };
 
   return (
@@ -25,18 +26,26 @@ function TopBar() {
         <div className="topBarElement topBar__center">
           <ul className="topBarList">
             <li className="topBarList__item">
-              <Link to="/">HOME</Link>
+              <Link to="/" onClick={() => setHamClicked(!hamClicked)}>
+                HOME
+              </Link>
             </li>
             <li className="topBarList__item">
-              <Link to="/posts">POSTS</Link>
+              <Link to="/posts" onClick={() => setHamClicked(!hamClicked)}>
+                POSTS
+              </Link>
             </li>
             {user && (
               <li className="topBarList__item">
-                <Link to="/write">WRITE</Link>
+                <Link to="/write" onClick={() => setHamClicked(!hamClicked)}>
+                  WRITE
+                </Link>
               </li>
             )}
             <li className="topBarList__item">
-              <Link to="/about">ABOUT</Link>
+              <Link to="/about" onClick={() => setHamClicked(!hamClicked)}>
+                ABOUT
+              </Link>
             </li>
             {user && (
               <li
@@ -50,7 +59,11 @@ function TopBar() {
         </div>
         <div className="topBarElement topBar__right">
           {user ? (
-            <Link className="topBarUserContainer" to="/user-settings">
+            <Link
+              className="topBarUserContainer"
+              to="/user-settings"
+              onClick={() => setHamClicked(!hamClicked)}
+            >
               <img
                 className="loggedInUserImage"
                 src={`http://localhost:5000/users/${user.photo}`}
@@ -62,12 +75,20 @@ function TopBar() {
             <ul className="topBarList">
               <i className="fa-solid fa-user"></i>
               <li className="topBarList__item">
-                <Link className="loginButtonTopbar" to="/login">
+                <Link
+                  className="loginButtonTopbar"
+                  to="/login"
+                  onClick={() => setHamClicked(!hamClicked)}
+                >
                   LOGIN
                 </Link>
               </li>
               <li className="topBarList__item">
-                <Link className="loginButtonTopbar" to="/signup">
+                <Link
+                  className="loginButtonTopbar"
+                  to="/signup"
+                  onClick={() => setHamClicked(!hamClicked)}
+                >
                   SIGNUP
                 </Link>
               </li>
