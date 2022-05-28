@@ -11,7 +11,7 @@ div.header {
 }
 .headerWelcome p {
   text-align: center;
-  padding-top: 16vh;
+  padding-top: 12vh;
   margin-bottom: 16vh;
   font-size: calc(2vw + 1rem);
   position: relative;
@@ -22,21 +22,21 @@ div.header {
 }
 .headerWelcome p::after {
   content: "";
-  width: 8%;
+  width: 5%;
   height: 0.1rem;
   background-color: rgba(221, 221, 221, 0.631);
   position: absolute;
   bottom: -30%;
-  left: 45%;
+  left: 47%;
 }
 .headerWelcome p::before {
   content: "";
-  width: 8%;
+  width: 5%;
   height: 0.1rem;
   background-color: rgba(221, 221, 221, 0.631);
   position: absolute;
   top: 35%;
-  left: 45%;
+  left: 47%;
 }
 .headerVideoContainer {
   width: 100%;

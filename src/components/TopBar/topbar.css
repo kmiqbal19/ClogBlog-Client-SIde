@@ -1,11 +1,19 @@
 div.topBar {
   width: 100%;
   height: 100%;
-  background-color: #f5f0e7;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(55, 17, 17),
+    30%,
+    rgb(111, 7, 7),
+    85%,
+    transparent
+  );
   position: sticky;
   top: 0;
   display: flex;
   z-index: 5;
+  font-family: "Raleway", sans-serif;
 }
 /* Left Side */
 div.topBar__left {
@@ -25,6 +33,7 @@ div.topBar__center {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 5vw;
 }
 
 div.topBar__center ul {
@@ -33,25 +42,29 @@ div.topBar__center ul {
 }
 div.topBar__center ul li {
   list-style: none;
-  margin-right: 2vw;
+  margin-right: 5vw;
   font-size: calc(1rem + 0.5vw);
 }
 div.topBar__center ul li a {
-  color: rgb(36, 7, 7);
+  color: rgb(208, 183, 183);
   position: relative;
   padding-bottom: 0.3rem;
+  transition: all 0.5s ease;
 }
 div.topBar__center ul li a::after {
   content: "";
-  width: 100%;
+  width: 30%;
   height: 2px;
-  background-color: rgb(36, 7, 7);
+  background-color: rgb(208, 183, 183);
 
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 35%;
   transform: scaleX(0);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+div.topBar__center ul li a:hover {
+  /* letter-spacing: 2px; */
 }
 div.topBar__center ul li a:hover::after {
   transform: scaleX(1);
@@ -68,7 +81,7 @@ div.topBar__right a {
   justify-content: center;
   align-items: center;
   font-size: calc(1rem + 0.5vw);
-  color: rgb(36, 7, 7);
+  color: rgb(208, 183, 183);
 }
 div.topBar__right img {
   width: 40px;
@@ -86,10 +99,8 @@ div.topBar__right ul {
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
 }
-div.topBar__right ul:hover {
-  background-color: none;
-}
-div.topBar__right ul:hover .loginButtonTopbar {
+
+.loginButtonTopbar:hover {
   color: #f5f0e7;
 }
 div.topBar__right ul:hover i {
@@ -104,12 +115,20 @@ div.topBar__right ul i {
 }
 div.topBar__right ul li {
   margin-left: 0.5rem;
+  margin-right: calc(0.5rem + 1vw);
 }
 .loginButtonTopbar {
   color: rgb(36, 7, 7);
 }
 .logoutButton {
   cursor: pointer;
+  color: rgb(236, 206, 206);
+  transition: letter-spacing 0.3s ease;
+}
+.logoutButton:hover {
+  cursor: pointer;
+  color: white;
+  letter-spacing: 1px;
 }
 /* Hamburger */
 div.hamburger {

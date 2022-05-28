@@ -5,3 +5,40 @@ div.postsContainer {
   min-height: 100%;
   justify-content: center;
 }
+div.searchCatContainer {
+  display: flex;
+}
+div.searchBarContainer {
+  position: relative;
+}
+div.searchBarContainer input {
+  width: calc(8rem + 7vw);
+  height: calc(2rem + 1vh);
+  margin-left: 4vw;
+  background: rgba(67, 65, 46, 0.548);
+  padding: 0rem 3rem;
+  border-radius: 0.4rem;
+  font-size: calc(0.5rem + 0.5vw);
+  color: rgb(247, 202, 202);
+  border: none;
+  transition: all 0.5s ease;
+}
+.fa-xmark {
+  position: absolute;
+  top: 20%;
+  right: 1rem;
+  font-size: calc(0.8rem + 0.5vw);
+  color: rgba(247, 202, 202, 0.323);
+}
+.fa-magnifying-glass {
+  position: absolute;
+  top: 9px;
+  left: 75px;
+  font-size: calc(0.8rem + 0.5vw);
+  color: rgba(247, 202, 202, 0.323);
+}
+div.searchBarContainer input:focus {
+  outline: none;
+  border-bottom: 5px solid rgba(210, 165, 54, 0.819);
+  width: calc(10vw + 10rem);
+}

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Context } from "../../Context/Context";
 import "./topbar.css";
 function TopBar() {
@@ -15,37 +15,37 @@ function TopBar() {
     <>
       <div className={hamClicked ? "topBar mobile" : "topBar"}>
         <div className="topBarElement topBar__left">
-          <Link to="/">
+          <NavLink to="/">
             <img
               className="logo"
               src="https://logosmarken.com/wp-content/uploads/2021/08/Blogger-Logo.png"
               alt="df"
             />
-          </Link>
+          </NavLink>
         </div>
         <div className="topBarElement topBar__center">
           <ul className="topBarList">
             <li className="topBarList__item">
-              <Link to="/" onClick={() => setHamClicked(!hamClicked)}>
+              <NavLink to="/" onClick={() => setHamClicked(!hamClicked)}>
                 HOME
-              </Link>
+              </NavLink>
             </li>
             <li className="topBarList__item">
-              <Link to="/posts" onClick={() => setHamClicked(!hamClicked)}>
+              <NavLink to="/posts" onClick={() => setHamClicked(!hamClicked)}>
                 POSTS
-              </Link>
+              </NavLink>
             </li>
             {user && (
               <li className="topBarList__item">
-                <Link to="/write" onClick={() => setHamClicked(!hamClicked)}>
+                <NavLink to="/write" onClick={() => setHamClicked(!hamClicked)}>
                   WRITE
-                </Link>
+                </NavLink>
               </li>
             )}
             <li className="topBarList__item">
-              <Link to="/about" onClick={() => setHamClicked(!hamClicked)}>
+              <NavLink to="/about" onClick={() => setHamClicked(!hamClicked)}>
                 ABOUT
-              </Link>
+              </NavLink>
             </li>
             {user && (
               <li
@@ -59,7 +59,7 @@ function TopBar() {
         </div>
         <div className="topBarElement topBar__right">
           {user ? (
-            <Link
+            <NavLink
               className="topBarUserContainer"
               to="/user-settings"
               onClick={() => setHamClicked(!hamClicked)}
@@ -69,28 +69,28 @@ function TopBar() {
                 src={`http://localhost:5000/users/${user.photo}`}
                 alt="userImage"
               />
-              {user && <span>{user.fullname}</span>}
-            </Link>
+              {user && <span>{user.fullname.toUpperCase()}</span>}
+            </NavLink>
           ) : (
             <ul className="topBarList">
-              <i className="fa-solid fa-user"></i>
+              {/* <i className="fa-solid fa-user"></i> */}
               <li className="topBarList__item">
-                <Link
+                <NavLink
                   className="loginButtonTopbar"
                   to="/login"
                   onClick={() => setHamClicked(!hamClicked)}
                 >
                   LOGIN
-                </Link>
+                </NavLink>
               </li>
               <li className="topBarList__item">
-                <Link
+                <NavLink
                   className="loginButtonTopbar"
                   to="/signup"
                   onClick={() => setHamClicked(!hamClicked)}
                 >
                   SIGNUP
-                </Link>
+                </NavLink>
               </li>
             </ul>
           )}

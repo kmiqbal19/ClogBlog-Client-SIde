@@ -43,12 +43,16 @@ function PostsPage() {
     <>
       {!search && (
         <div className="searchCatContainer">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="searchBar"
-            onChange={(e) => setQuery(e.target.value)}
-          />
+          <div className="searchBarContainer">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="searchBar"
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <i className="searchBarIcon fa-solid fa-xmark"></i>
+            <i className="searchBarIcon fa-solid fa-magnifying-glass"></i>
+          </div>
           <select onChange={(e) => setCatg(e.target.value)}>
             <option defaultValue="">None</option>
             <option value="music">Music</option>
