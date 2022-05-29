@@ -63,3 +63,19 @@ form.userSettingsForm > label {
   cursor: not-allowed;
   background-color: rgb(255, 0, 106);
 }
+.userSettingsLogoutButton {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border: none;
+  background-color: #42c2ff;
+  color: rgb(247, 243, 243);
+  cursor: pointer;
+}
+.userSettingsLogoutButton:hover {
+  background-color: #6cccf8;
+}
+.userSettingsLogoutButton:disabled {
+  cursor: not-allowed;
+  background-color: rgb(255, 0, 106);
+}

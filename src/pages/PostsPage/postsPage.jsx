@@ -71,8 +71,20 @@ function PostsPage() {
                   None{" "}
                 </option>
                 <option value="music">Music</option>
-                <option value="guitar">Guitar</option>
-                <option value="pizza">pizza</option>
+                <option value="food">Food</option>
+                <option value="nature">Nature</option>
+                <option value="life">Life</option>
+                <option value="friends">Friends</option>
+                <option value="memories">Memories</option>
+                <option value="journey">Journey</option>
+                <option value="cooking">Cooking</option>
+                <option value="family">Family</option>
+                <option value="school">School</option>
+                <option value="science-tech">Science & Technology</option>
+                <option value="astronomy">Astronomy</option>
+                <option value="medical">Medical</option>
+                <option value="love">Love</option>
+                <option value="tour">Tour</option>
               </optgroup>
             </select>
           </label>

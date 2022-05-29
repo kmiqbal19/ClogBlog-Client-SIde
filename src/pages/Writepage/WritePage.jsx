@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../../Context/Context";
 import axios from "axios";
 import "./WritePage.css";
+import { Categories } from "./categories";
 function WritePage() {
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
@@ -49,80 +50,42 @@ function WritePage() {
       console.log(err);
     }
   };
+  const CategoriesMap = () => {
+    return Categories.map((category, index) => {
+      return (
+        <label
+          key={`catLabel${index}`}
+          className="singlePostCatLabel"
+          htmlFor={category.htmlFor}
+        >
+          <input
+            type="checkbox"
+            id={category.inputId}
+            name={category.inputName}
+            value={category.inputValue}
+            onChange={handleCategory}
+          />
+          {category.labelText}
+          <span className="checkmark"></span>
+        </label>
+      );
+    });
+  };
   return (
     <div className="writePage">
       {file && file.type.startsWith("image") && (
         <img src={URL.createObjectURL(file)} alt="uploadedFile" />
       )}
-      {!file && <img src="https://i.ibb.co/TwvswzZ/pngwing-com.png" alt="" />}
+      {!file && (
+        <p style={{ margin: "12vh 5vw", color: "white", fontSize: "3rem" }}>
+          Insert an image by clicking{" "}
+          <i className="fa-solid fa-circle-plus"></i> icon.
+        </p>
+      )}
       {file && !file.type.startsWith("image") && (
         <h1>Please enter image file only!</h1>
       )}
       <form className="writeForm" onSubmit={handleSubmit}>
-        <span>Category: </span>
-
-        <div className="singlePostCategorySelection">
-          <label className="singlePostCatLabel" htmlFor="musicCatg">
-            <input
-              type="checkbox"
-              id="musicCatg"
-              name="music"
-              value="music"
-              onChange={handleCategory}
-            />
-            Music
-            <span className="checkmark"></span>
-          </label>
-
-          <label className="singlePostCatLabel" htmlFor="lifeCatg">
-            <input
-              type="checkbox"
-              id="lifeCatg"
-              name="life"
-              value="life"
-              onChange={handleCategory}
-            />
-            Life
-            <span className="checkmark"></span>
-          </label>
-
-          <label className="singlePostCatLabel" htmlFor="animalCatg">
-            {" "}
-            <input
-              type="checkbox"
-              id="animalCatg"
-              name="animal"
-              value="animal"
-              onChange={handleCategory}
-            />
-            Animal
-            <span className="checkmark"></span>
-          </label>
-          <label className="singlePostCatLabel" htmlFor="scienceCatg">
-            {" "}
-            <input
-              type="checkbox"
-              id="scienceCatg"
-              name="science"
-              value="science"
-              onChange={handleCategory}
-            />
-            Science
-            <span className="checkmark"></span>
-          </label>
-          <label className="singlePostCatLabel" htmlFor="technoCatg">
-            {" "}
-            <input
-              type="checkbox"
-              id="technoCatg"
-              name="technology"
-              value="technology"
-              onChange={handleCategory}
-            />
-            Technology
-            <span className="checkmark"></span>
-          </label>
-        </div>
         <div className="writeFormGroupUp">
           <label htmlFor="fileInput">
             <i className="writeIcon fas fa-plus"></i>
@@ -140,6 +103,11 @@ function WritePage() {
             autoFocus={true}
             onChange={(e) => setTitle(e.target.value)}
           />
+        </div>
+        <span>Choose Categories: </span>
+
+        <div className="singlePostCategorySelection">
+          <CategoriesMap />
         </div>
         <div className="writeFormGroupDown">
           <textarea

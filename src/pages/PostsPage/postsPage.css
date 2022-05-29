@@ -49,7 +49,7 @@ div.searchBarContainer input::placeholder {
 }
 div.searchBarContainer input:focus {
   outline: none;
-  border-bottom: 5px solid rgba(184, 47, 37, 0.819);
+  border-bottom: 5px solid rgba(240, 35, 35, 0.759);
   width: calc(10vw + 10rem);
 }
 div.searchCatContainer label {
@@ -63,6 +63,7 @@ div.searchCatContainer select {
   border-radius: 5px;
   background-color: rgba(67, 65, 46, 0.548);
   color: rgb(247, 202, 202);
+  /* width: calc(7rem + 5vw); */
 }
 footer.postsFooter {
   display: flex;

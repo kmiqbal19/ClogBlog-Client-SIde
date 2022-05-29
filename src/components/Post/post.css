@@ -15,6 +15,11 @@ div.postContainer img {
   border-radius: 5px;
   object-fit: cover;
   filter: sepia();
+  transition: all 0.5s ease;
+}
+div.postContainer img:hover {
+  filter: none;
+  transform: scale(1.02);
 }
 div.postInfoContainer {
   display: flex;

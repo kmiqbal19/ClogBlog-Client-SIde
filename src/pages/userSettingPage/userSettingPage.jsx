@@ -53,7 +53,9 @@ function UserSettingsPage() {
     setFullname("");
     setFile(null);
   };
-
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
   return (
     <div className="settingsPageContainer">
       <form className="userSettingsForm" onSubmit={handleSubmit}>
@@ -108,7 +110,17 @@ function UserSettingsPage() {
             Something went wrong! Please try again later!
           </p>
         )}
-        <Link to="/change-password">Change Password</Link>
+        <button
+          className="userSettingsLogoutButton"
+          disabled={email || fullname}
+          onClick={handleLogout}
+        >
+          Log Out
+        </button>
+
+        <Link to="/change-password" style={{ marginTop: "10px" }}>
+          Change Password
+        </Link>
       </form>
     </div>
   );

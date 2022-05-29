@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
 import { useLocation, Link } from "react-router-dom";
 import "./singlePost.css";
-
+import { Categories } from "./categories.js";
 function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
@@ -85,6 +85,27 @@ function SinglePost() {
     e.preventDefault();
     setUpdateMode(false);
   };
+  const CategoriesMap = () => {
+    return Categories.map((category, index) => {
+      return (
+        <label
+          key={`catLabelSinglePost${index}`}
+          className="singlePostCatLabel"
+          htmlFor={category.htmlFor}
+        >
+          <input
+            type="checkbox"
+            id={category.inputId}
+            name={category.inputName}
+            value={category.inputValue}
+            onChange={handleCategory}
+          />
+          {`#${category.labelText}`}
+          <span className="checkmark"></span>
+        </label>
+      );
+    });
+  };
   return (
     <div className="singlePostContainer">
       {post.photo && !updateMode && (
@@ -145,66 +166,7 @@ function SinglePost() {
 
         {updateMode ? (
           <div className="singlePostCategorySelection">
-            <label className="singlePostCatLabel" htmlFor="musicCatg">
-              <input
-                type="checkbox"
-                id="musicCatg"
-                name="music"
-                value="music"
-                onChange={handleCategory}
-              />
-              Music
-              <span className="checkmark"></span>
-            </label>
-
-            <label className="singlePostCatLabel" htmlFor="lifeCatg">
-              <input
-                type="checkbox"
-                id="lifeCatg"
-                name="life"
-                value="life"
-                onChange={handleCategory}
-              />
-              Life
-              <span className="checkmark"></span>
-            </label>
-
-            <label className="singlePostCatLabel" htmlFor="animalCatg">
-              {" "}
-              <input
-                type="checkbox"
-                id="animalCatg"
-                name="animal"
-                value="animal"
-                onChange={handleCategory}
-              />
-              Animal
-              <span className="checkmark"></span>
-            </label>
-            <label className="singlePostCatLabel" htmlFor="scienceCatg">
-              {" "}
-              <input
-                type="checkbox"
-                id="scienceCatg"
-                name="science"
-                value="science"
-                onChange={handleCategory}
-              />
-              Science
-              <span className="checkmark"></span>
-            </label>
-            <label className="singlePostCatLabel" htmlFor="technoCatg">
-              {" "}
-              <input
-                type="checkbox"
-                id="technoCatg"
-                name="technology"
-                value="technology"
-                onChange={handleCategory}
-              />
-              Technology
-              <span className="checkmark"></span>
-            </label>
+            <CategoriesMap />
           </div>
         ) : (
           <ul className="singlePostCategoryList">
