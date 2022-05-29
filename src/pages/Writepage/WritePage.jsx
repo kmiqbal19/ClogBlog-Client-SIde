@@ -50,24 +50,40 @@ function WritePage() {
       console.log(err);
     }
   };
-
+  const handleCancel = () => {
+    return window.location.reload();
+  };
   return (
     <div className="writePage">
       {file && file.type.startsWith("image") && (
         <img src={URL.createObjectURL(file)} alt="uploadedFile" />
       )}
       {!file && (
-        <p style={{ margin: "12vh 5vw", color: "white", fontSize: "3rem" }}>
+        <p
+          style={{
+            margin: "12vh 5vw",
+            color: "white",
+            fontSize: "calc(1rem + 2vw)",
+          }}
+        >
           Insert an image by clicking{" "}
           <i className="fa-solid fa-circle-plus"></i> button below.
         </p>
       )}
       {file && !file.type.startsWith("image") && (
-        <h1>Please enter image file only!</h1>
+        <h1
+          style={{
+            margin: "12vh 5vw",
+            color: "rgb(201, 43, 80)",
+            fontSize: "calc(1rem + 2vw)",
+          }}
+        >
+          ⚠️ Please enter image file only!
+        </h1>
       )}
       <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroupUp">
-          <label htmlFor="fileInput">
+          <label title="Add Photos" htmlFor="fileInput">
             <i className="writeIcon fas fa-plus"></i>
           </label>
           <input
@@ -280,13 +296,31 @@ function WritePage() {
             className="writeInput writeText"
             placeholder="Tell your story here..."
             type="text"
-            autoFocus={true}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <button className="writeSubmit" type="submit">
-          Publish
-        </button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            width: "100%",
+          }}
+        >
+          <button
+            className="writeSubmit"
+            type="submit"
+            disabled={!title || !file || !description || !categories}
+          >
+            Publish
+          </button>
+          <button
+            className="cancelWriteForm"
+            type="button"
+            onClick={handleCancel}
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

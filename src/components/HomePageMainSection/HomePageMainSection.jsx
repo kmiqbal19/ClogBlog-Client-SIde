@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./HomePageMainSection.css";
 function HomePageMainSection() {
+  const a = [1, 3, 4, 5, 5, 6, 6];
+  console.log(a.slice(0, 2));
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchPosts = async () => {
@@ -13,7 +15,7 @@ function HomePageMainSection() {
     fetchPosts();
   }, []);
   const Posts = () => {
-    return posts.splice(0, 3).map((post, index) => {
+    return posts.slice(0, 3).map((post, index) => {
       return (
         <div key={`homePost${index}`} className="homePostContainer">
           <Link to={`/posts/${post._id}`}>
@@ -33,7 +35,7 @@ function HomePageMainSection() {
               </Link>
             </p>
             <ul>
-              {post.categories.map((el, i) => {
+              {post.categories.splice(0, 4).map((el, i) => {
                 return (
                   <Link key={`homePostCatgLink${i}`} to={`/posts/?cat=${el}`}>
                     <li

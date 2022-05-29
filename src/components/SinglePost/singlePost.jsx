@@ -128,13 +128,8 @@ function SinglePost() {
       )}
 
       {updateMode ? (
-        <div>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <label htmlFor="fileInput">
+        <div className="singlePostTitleContainer__Edit">
+          <label title="Add photos" className="fileEdit" htmlFor="fileInput">
             <i className="writeIcon fas fa-plus"></i>
           </label>
           <input
@@ -143,6 +138,12 @@ function SinglePost() {
             style={{ display: "none" }}
             onChange={(e) => setFile(e.target.files[0])}
           />
+          <input
+            className="titleEdit"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
         </div>
       ) : (
         <h1 className="singlePostTitleContainer">
@@ -150,11 +151,14 @@ function SinglePost() {
           {post.username === user?.username && (
             <div className="singlePostEditOptions">
               <i
-                className="postEditIcon fa-solid fa-pen-nib"
+                title="Edit your post"
+                className="postEditIcon fa-regular fa-pen-to-square"
                 onClick={() => setUpdateMode(true)}
               ></i>
+
               <i
-                className="postEditIcon fa-solid fa-trash"
+                title="Delete your post"
+                className="postEditIcon fa-regular fa-trash-can"
                 onClick={handleDelete}
               ></i>
             </div>
@@ -162,7 +166,7 @@ function SinglePost() {
         </h1>
       )}
       <div className="singlePostCategoryContainer">
-        <span>Choose Categories: </span>
+        <span>{updateMode ? "Choose Categories:" : "Categories:"} </span>
 
         {updateMode ? (
           <div className="singlePostCategorySelection">
@@ -379,21 +383,23 @@ function SinglePost() {
         <span>Date: {new Date(post.createdAt).toDateString()}</span>
       </div>
       {updateMode ? (
-        <textarea
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+        <div className="singlePostDescriptionEdit">
+          <textarea
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
       ) : (
         <p className="singlePostDescription">{post.description}</p>
       )}
       {updateMode && (
-        <>
+        <div className="singlePostUpdateButtonsContainer">
           <button type="submit" onClick={handleUpdate}>
             Update Changes
           </button>
           <button onClick={handleCancel}>Cancel</button>
-        </>
+        </div>
       )}
     </div>
   );

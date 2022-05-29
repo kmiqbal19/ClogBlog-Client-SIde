@@ -16,13 +16,21 @@ function Post({ post }) {
           <span className="postTitle">{post.title}</span>
         </Link>
         <ul className="postCategories">
-          {post.categories.map((el, i) => {
-            return (
-              <li key={`cat${i}`} className="postCategoriesItem">
-                <Link to={`/posts/?cat=${el}`}>{`#${el}`}</Link>
-              </li>
-            );
-          })}
+          {post.categories.length > 4
+            ? post.categories.slice(0, 6).map((el, i) => {
+                return (
+                  <li key={`cat${i}`} className="postCategoriesItem">
+                    <Link to={`/posts/?cat=${el}`}>{`#${el}`}</Link>
+                  </li>
+                );
+              })
+            : post.categories.map((el, i) => {
+                return (
+                  <li key={`cat${i}`} className="postCategoriesItem">
+                    <Link to={`/posts/?cat=${el}`}>{`#${el}`}</Link>
+                  </li>
+                );
+              })}
         </ul>
         <div className="postDateAndAuthorContainer">
           <span className="postDate">

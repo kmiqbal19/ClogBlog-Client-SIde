@@ -1,9 +1,7 @@
 div.signupPageContainer {
-  background: linear-gradient(
-      rgba(138, 133, 133, 0.442),
-      rgba(255, 255, 255, 0.237)
-    ),
-    url("https://i.ibb.co/YZmSnRX/kevin-bhagat-z-NRITe8-NPq-Y-unsplash.jpg");
+  background: linear-gradient(rgba(55, 2, 2, 0.472), rgba(80, 2, 2, 0.488)),
+    /* url("https://i.ibb.co/YZmSnRX/kevin-bhagat-z-NRITe8-NPq-Y-unsplash.jpg"); */
+      url("https://i.ibb.co/XxC0kjq/adolfo-felix-Yi9-QIOb-Q1o-unsplash.jpg");
   background-size: cover;
   width: 100%;
   height: calc(100vh - 60px);
@@ -16,16 +14,17 @@ form.signupForm {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  padding: 5vh 4vw;
+  padding: 2vh 4vw;
   width: 30%;
-  background-color: rgba(175, 175, 175, 0.321);
-  /* border-radius: 1rem; */
+  background-color: rgba(79, 63, 63, 0.348);
+
   border: 1px solid rgba(115, 114, 114, 0.181);
   backdrop-filter: blur(10px);
+  color: white;
 }
 form.signupForm img {
-  width: 30%;
-  height: 30%;
+  width: 25%;
+  height: 25%;
   object-fit: fill;
   align-self: center;
 }

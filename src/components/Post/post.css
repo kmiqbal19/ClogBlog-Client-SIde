@@ -7,6 +7,7 @@ div.postContainer {
   /* border: 1px solid rgb(228, 228, 228); */
 
   height: calc(350px + 20vh);
+  overflow: hidden;
 }
 
 div.postContainer img {
@@ -41,15 +42,17 @@ span.postTitle {
   text-transform: uppercase;
 }
 ul.postCategories {
-  width: 60%;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   margin-top: 1vh;
+  flex-wrap: wrap;
 }
 ul.postCategories li {
   font-family: "Josefin Sans", sans-serif;
   padding: 0.3rem 0.7rem;
   background-color: #676262;
+  margin: 2px;
 
   /* border-radius: 0.3rem; */
 }
@@ -84,10 +87,27 @@ p.postDescription {
   color: #5f5555;
 
   text-overflow: ellipsis;
-  overflow: hidden;
+  overflow-x: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-align: justify;
   padding: 1rem 1rem 0.15rem;
+  white-space: pre-wrap;
+  margin: 1rem 0rem;
+}
+p.postDescription::-webkit-scrollbar {
+  width: 5px;
+}
+p.postDescription::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+p.postDescription::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(255, 0, 0, 0.8);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }

@@ -82,17 +82,43 @@ div.writeFormGroupUp {
 }
 button.writeSubmit {
   margin-top: calc(1rem + 1vh);
-  padding: 0.8rem 1rem;
+  padding: 0.5rem 1rem;
   width: 10%;
   align-self: flex-end;
-  border-radius: 0.5rem;
-  font-size: calc(0.5rem + 0.5vw);
+  border-radius: 5px;
+  font-size: 1rem;
   border: none;
-  background-color: rgb(197, 37, 80);
+  background-color: rgba(81, 255, 6, 0.382);
   color: white;
   cursor: pointer;
   margin-right: 3vw;
 }
 button.writeSubmit:hover {
-  background-color: rgb(255, 0, 68);
+  background-color: rgba(81, 255, 6, 0.682);
+}
+button.writeSubmit:active {
+  border: 2px solid white;
+}
+button.writeSubmit:disabled {
+  cursor: not-allowed;
+  background-color: rgba(129, 120, 119, 0.396);
+}
+button.cancelWriteForm {
+  margin-top: calc(1rem + 1vh);
+  padding: 0.5rem 1rem;
+  width: 10%;
+  align-self: flex-end;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  background-color: rgba(255, 23, 6, 0.382);
+  color: white;
+  cursor: pointer;
+  margin-right: 3vw;
+}
+button.cancelWriteForm:hover {
+  background-color: rgba(255, 6, 6, 0.682);
+}
+button.cancelWriteForm:active {
+  border: 2px solid white;
 }

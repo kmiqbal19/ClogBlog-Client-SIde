@@ -55,6 +55,7 @@ function UserSettingsPage() {
   };
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+    window.location.replace("/");
   };
   return (
     <div className="settingsPageContainer">

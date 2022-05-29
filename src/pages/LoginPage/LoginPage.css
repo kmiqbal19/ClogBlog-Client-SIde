@@ -10,7 +10,9 @@ div.loginPageContainer {
       rgba(255, 255, 255, 0.4)
     ),
     url("https://i.ibb.co/9YJWzrd/dose-media-b-U6-Jyh-SI6zo-unsplash.jpg"); */
-  background: url("https://i.ibb.co/9YJWzrd/dose-media-b-U6-Jyh-SI6zo-unsplash.jpg");
+  /* background: url("https://i.ibb.co/9YJWzrd/dose-media-b-U6-Jyh-SI6zo-unsplash.jpg"); */
+  background: linear-gradient(rgba(55, 19, 19, 0.65), rgba(114, 11, 11, 0.456)),
+    url("https://i.ibb.co/NnKHGw8/brady-frieden-Aupdm-Q4w-M4-unsplash.jpg");
   background-size: cover;
 }
 form.loginForm {
@@ -19,10 +21,11 @@ form.loginForm {
   border: 1px solid black;
   padding: 5vh 4vw;
   width: 30%;
-  background-color: rgba(175, 175, 175, 0.321);
+  background-color: rgba(79, 63, 63, 0.348);
   /* border-radius: 1rem; */
   border: 1px solid rgba(115, 114, 114, 0.181);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(8px);
+  color: white;
 }
 form.loginForm img {
   width: 5vw;

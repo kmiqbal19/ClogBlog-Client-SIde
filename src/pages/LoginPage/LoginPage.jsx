@@ -24,9 +24,8 @@ function LoginPage() {
       setEmail("");
       setPassword("");
       setLogin(true);
-      setTimeout(() => {
-        window.location.replace("/write");
-      }, 2000);
+
+      window.location.replace("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
     }
@@ -82,7 +81,14 @@ function LoginPage() {
           Forgot password? Click <Link to="/forgotPassword">here</Link>
         </span> */}
         <span className="signupLink">
-          Do not have account? <Link to="/signup">Signup</Link> here.
+          Do not have account?{" "}
+          <Link
+            style={{ color: "lightblue", textDecoration: "underline" }}
+            to="/signup"
+          >
+            Signup
+          </Link>{" "}
+          here.
         </span>
       </form>
     </div>

@@ -53,6 +53,7 @@ function SignUpPage() {
   return (
     <div className="signupPageContainer">
       <form className="signupForm" onSubmit={handleSubmit}>
+        {/* <img src="https://i.ibb.co/N7Z4Jh7/pngwing-com.png" alt="avatar" /> */}
         <img src="https://i.ibb.co/yBwmZh6/default.png" alt="avatar" />
         <label>Full Name</label>
         <input

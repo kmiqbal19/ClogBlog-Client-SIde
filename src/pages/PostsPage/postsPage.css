@@ -8,6 +8,7 @@ div.postsContainer {
   grid-template-columns: repeat(4, 1fr);
   padding: 3vw;
   min-height: 100vh;
+  min-width: 0;
 }
 div.searchCatContainer {
   display: flex;
