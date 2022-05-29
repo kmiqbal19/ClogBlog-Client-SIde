@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 import { Context } from "../../Context/Context";
 import "./topbar.css";
 function TopBar() {
-  const a = "mou khandakar";
-  console.log(a.split(" ")[0]);
   const [hamClicked, setHamClicked] = useState(false);
   const { user, dispatch } = useContext(Context);
 

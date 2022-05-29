@@ -6,27 +6,33 @@ div.writePage {
 }
 
 div.writePage img {
-  width: 70%;
+  width: 80%;
   height: 60vh;
   object-fit: cover;
-  border-radius: 4rem;
+  border-radius: 1rem;
+  filter: sepia();
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+div.writePage img:hover {
+  filter: none;
+  transform: scale(1.01);
 }
 form.writeForm {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 70%;
+  width: 80%;
 }
 div.writeFormGroupUp {
   display: flex;
   /* flex-direction: column; */
-  margin: 2rem;
+  margin: 2rem 0rem;
 }
 .writeIcon {
   width: 3vw;
   height: 3vw;
   font-size: 2vw;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 50%;
   color: rgb(129, 125, 125);
   display: flex;
@@ -35,52 +41,58 @@ div.writeFormGroupUp {
   cursor: pointer;
 }
 .writeTitleInput {
-  height: 4vh;
-  margin-left: 4vw;
+  height: calc(2rem + 2vh);
+  margin-left: 2vw;
   width: 100%;
-  padding: 1rem 2rem 1.4rem;
+  padding: 1rem 2rem;
   border: none;
-  font-size: calc(0.8vw + 1rem);
-  background: none;
+  font-size: calc(0.5vw + 1rem);
+  background-color: rgba(148, 148, 148, 0.203);
+  color: rgb(242, 208, 208);
+  border-radius: 5px;
 }
 .writeTitleInput:focus {
   outline: none;
   border-bottom: 1px solid rgb(54, 14, 14);
-  border-radius: 10%;
+  background-color: rgba(148, 148, 148, 0.503);
 }
 .writeFormGroupDown {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 }
 .writeFormGroupDown textarea {
   width: 100%;
   padding: 1rem;
   font-size: calc(1rem + 0.5vw);
-  height: 20vh;
+  height: calc(5rem + 10vh);
   background: none;
   border-top: none;
   border-bottom: none;
   border-radius: 1rem;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  border-left: 2px solid gray;
+  border-right: 2px solid gray;
   font-family: inherit;
-}
-.writeFormGroupDown textarea {
   outline: none;
+  color: rgb(242, 208, 208);
+}
+.writeFormGroupDown textarea:focus {
+  background-color: rgba(148, 148, 148, 0.503);
 }
 button.writeSubmit {
   margin-top: calc(1rem + 1vh);
-  padding: 0.8rem 2rem;
-  width: 20%;
+  padding: 0.8rem 1rem;
+  width: 10%;
   align-self: flex-end;
   border-radius: 0.5rem;
-  font-size: calc(0.8rem + 0.5vw);
+  font-size: calc(0.5rem + 0.5vw);
   border: none;
-  background-color: rgb(153, 51, 151);
+  background-color: rgb(197, 37, 80);
   color: white;
   cursor: pointer;
+  margin-right: 3vw;
 }
 button.writeSubmit:hover {
-  background-color: rgb(119, 78, 160);
+  background-color: rgb(255, 0, 68);
 }

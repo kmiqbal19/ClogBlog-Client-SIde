@@ -162,11 +162,197 @@ function SinglePost() {
         </h1>
       )}
       <div className="singlePostCategoryContainer">
-        <span>Category: </span>
+        <span>Choose Categories: </span>
 
         {updateMode ? (
           <div className="singlePostCategorySelection">
-            <CategoriesMap />
+            <label className="singlePostCatLabel" htmlFor="musicCatg">
+              <input
+                type="checkbox"
+                id="musicCatg"
+                name="music"
+                value="music"
+                onChange={handleCategory}
+              />
+              #music
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="foodCatg">
+              <input
+                type="checkbox"
+                id="foodCatg"
+                name="food"
+                value="food"
+                onChange={handleCategory}
+              />
+              #food
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="natureCatg">
+              <input
+                type="checkbox"
+                id="natureCatg"
+                name="nature"
+                value="nature"
+                onChange={handleCategory}
+              />
+              #nature
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="lifeCatg">
+              <input
+                type="checkbox"
+                id="lifeCatg"
+                name="life"
+                value="life"
+                onChange={handleCategory}
+              />
+              #life
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="friendsCatg">
+              <input
+                type="checkbox"
+                id="friendsCatg"
+                name="friends"
+                value="friends"
+                onChange={handleCategory}
+              />
+              #friends
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="memoriesCatg">
+              <input
+                type="checkbox"
+                id="memoriesCatg"
+                name="memories"
+                value="memories"
+                onChange={handleCategory}
+              />
+              #memories
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="journeyCatg">
+              <input
+                type="checkbox"
+                id="journeyCatg"
+                name="journey"
+                value="journey"
+                onChange={handleCategory}
+              />
+              #journey
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="cookingCatg">
+              <input
+                type="checkbox"
+                id="cookingCatg"
+                name="cooking"
+                value="cooking"
+                onChange={handleCategory}
+              />
+              #cooking
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="familyCatg">
+              <input
+                type="checkbox"
+                id="familyCatg"
+                name="family"
+                value="family"
+                onChange={handleCategory}
+              />
+              #family
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="schoolCatg">
+              <input
+                type="checkbox"
+                id="schoolCatg"
+                name="school"
+                value="school"
+                onChange={handleCategory}
+              />
+              #school
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="scienceCatg">
+              <input
+                type="checkbox"
+                id="scienceCatg"
+                name="science"
+                value="science"
+                onChange={handleCategory}
+              />
+              #science
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="technologyCatg">
+              <input
+                type="checkbox"
+                id="technologyCatg"
+                name="technology"
+                value="technology"
+                onChange={handleCategory}
+              />
+              #technology
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="astronomyCatg">
+              <input
+                type="checkbox"
+                id="astronomyCatg"
+                name="astronomy"
+                value="astronomy"
+                onChange={handleCategory}
+              />
+              #astronomy
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="loveCatg">
+              <input
+                type="checkbox"
+                id="loveCatg"
+                name="love"
+                value="love"
+                onChange={handleCategory}
+              />
+              #love
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="medicalCatg">
+              <input
+                type="checkbox"
+                id="medicalCatg"
+                name="medical"
+                value="medical"
+                onChange={handleCategory}
+              />
+              #medical
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="tourCatg">
+              <input
+                type="checkbox"
+                id="tourCatg"
+                name="tour"
+                value="tour"
+                onChange={handleCategory}
+              />
+              #tour
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="religionCatg">
+              <input
+                type="checkbox"
+                id="religionCatg"
+                name="religion"
+                value="religion"
+                onChange={handleCategory}
+              />
+              #religion
+              <span className="checkmark"></span>
+            </label>
           </div>
         ) : (
           <ul className="singlePostCategoryList">
