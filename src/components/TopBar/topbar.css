@@ -63,9 +63,7 @@ div.topBar__center ul li a::after {
   transform: scaleX(0);
   transition: all 0.2s ease-in-out;
 }
-div.topBar__center ul li a:hover {
-  /* letter-spacing: 2px; */
-}
+
 div.topBar__center ul li a:hover::after {
   transform: scaleX(1);
 }
@@ -142,12 +140,12 @@ div.hamburger {
   display: none;
 }
 /* ///////////////////////////////////////////////////////////// */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   div.topBar {
     position: fixed;
     top: 0;
-    right: -50rem;
-    width: 40rem;
+    right: -60rem;
+    width: 45rem;
     height: 100vh;
     background-color: rgba(85, 21, 12, 0.651);
     backdrop-filter: blur(3px);
@@ -169,7 +167,7 @@ div.hamburger {
 
   /* Center */
   div.topBar__center {
-    flex: 50%;
+    flex: 40%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -201,39 +199,33 @@ div.hamburger {
   }
   /* Right */
   div.topBar__right {
-    flex: 50%;
+    /* flex: 50%; */
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
   }
-  div.topBar__right a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: calc(1rem + 0.5vw);
-    color: rgb(230, 224, 224);
-  }
+
   a.topBarUserContainer {
-    width: 100%;
-    height: 100%;
+    margin-left: calc(100px + 6vw);
   }
-  /* div.topBar__right img { */
+
   a.topBarUserContainer img.loggedInUserImage {
     width: 10vw;
     height: 10vw;
-    margin: 0.8rem;
+
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20vw;
   }
-  a.topBarUserContainer span {
-    font-size: calc(1rem + 2vw);
+  div.topBar__right span {
+    font-size: calc(1rem + 1vw);
     text-transform: uppercase;
-    margin-right: 20vw;
-    margin-bottom: 20vw;
+    color: white;
+    margin-left: calc(120px + 6vw);
+    margin-top: 1rem;
   }
+  /* NO USER */
   div.topBar__right ul {
     display: flex;
     justify-content: center;
@@ -310,16 +302,28 @@ div.hamburger {
     top: 30px;
   }
 }
-/* @media screen and (max-width: 700px) {
-  div.topBar.mobile {
-    transform: translateX(-200%);
+
+@media screen and (max-width: 700px) {
+  a.topBarUserContainer {
+    margin-left: calc(100px + 3vw);
   }
-} */
-@media screen and (max-width: 400px) {
+  div.topBar__right span {
+    margin-left: calc(100px + 5vw);
+  }
+}
+@media screen and (max-width: 500px) {
   div.topBar__center ul {
-    margin-left: 15vw;
-  }
-  div.topBar__right ul {
     margin-left: 25vw;
+  }
+  a.topBarUserContainer {
+    margin-left: calc(150px + 10vw);
+  }
+  div.topBar__right span {
+    margin-left: calc(160px + 10vw);
+  }
+}
+@media screen and (max-height: 700px) {
+  div.topBar__right span {
+    margin-bottom: 3rem;
   }
 }

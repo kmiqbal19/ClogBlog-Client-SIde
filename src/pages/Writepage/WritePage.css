@@ -76,6 +76,7 @@ div.writeFormGroupUp {
   font-family: inherit;
   outline: none;
   color: rgb(242, 208, 208);
+  resize: none;
 }
 .writeFormGroupDown textarea:focus {
   background-color: rgba(148, 148, 148, 0.503);
