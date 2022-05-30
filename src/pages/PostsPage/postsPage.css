@@ -3,6 +3,7 @@ div.postsContainer {
   gap: calc(1rem + 1vw);
   grid-template-columns: repeat(4, 1fr);
   padding: 3vw;
+  margin-top: 2rem;
   min-height: 100vh;
   min-width: 0;
 }
@@ -170,6 +171,7 @@ footer.postsFooter select {
   div.searchCatContainer {
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 3rem;
   }
   div.searchBarContainer input {
     width: 15rem;

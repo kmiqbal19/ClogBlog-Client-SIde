@@ -134,9 +134,9 @@ div.topBar__right ul li {
 }
 /* Hamburger */
 div.hamburger {
-  width: calc(6vw + 1rem);
-  height: calc(3vh + 1rem);
-
+  width: 5rem;
+  height: 4rem;
+  border: 1px solid rgba(138, 138, 19, 0.576);
   z-index: 2;
 
   cursor: pointer;
@@ -273,14 +273,15 @@ div.hamburger {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    background-color: transparent;
+    background-color: rgba(45, 3, 3, 0.854);
     overflow: visible;
     position: fixed;
     top: 3%;
     right: 6%;
+    padding: 0.8rem;
   }
   div.line {
-    width: 100%;
+    width: 90%;
 
     background-color: rgb(195, 195, 195);
     transition: all 0.5s ease-in-out;
@@ -298,19 +299,25 @@ div.hamburger {
   div.line-1.clicked {
     position: absolute;
     top: 30px;
-    width: 75%;
+    width: 60%;
     transform: rotateZ(410deg);
     height: 0.15rem;
   }
   div.line-2.clicked {
     position: absolute;
-    width: 75%;
+    width: 60%;
     transform: rotateZ(670deg);
     top: 30px;
   }
 }
 
 @media screen and (max-width: 700px) {
+  div.topBar__center ul {
+    margin-left: 10rem;
+  }
+  div.topBar__right ul {
+    margin-left: 8rem;
+  }
   a.topBarUserContainer {
     margin-left: 9rem;
   }
@@ -323,7 +330,7 @@ div.hamburger {
     margin-left: 10rem;
   }
   div.topBar__right ul {
-    margin-left: 9rem;
+    margin-left: 8rem;
   }
   a.topBarUserContainer {
     margin-left: 8rem;
