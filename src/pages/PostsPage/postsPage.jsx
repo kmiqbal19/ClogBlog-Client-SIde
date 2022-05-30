@@ -12,6 +12,7 @@ function PostsPage() {
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchPosts = async () => {
       const res = await axios.get(
         search
@@ -28,6 +29,7 @@ function PostsPage() {
   useEffect(() => {
     setPage(1);
   }, [catg, search, query]);
+
   const handlePreviousPage = (e) => {
     setPage((p) => {
       if (p === 1) return p;
@@ -92,6 +94,7 @@ function PostsPage() {
         </div>
       )}
       <div className="postsContainer">
+        {!posts && <h1>Loading...</h1>}
         {posts.length === 0 && (
           <p
             style={{

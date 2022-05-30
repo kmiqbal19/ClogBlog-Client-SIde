@@ -35,18 +35,37 @@ function HomePageMainSection() {
               </Link>
             </p>
             <ul>
-              {post.categories.splice(0, 4).map((el, i) => {
-                return (
-                  <Link key={`homePostCatgLink${i}`} to={`/posts/?cat=${el}`}>
-                    <li
-                      key={`homePostCatg${i}`}
-                      className="homePostContainer__Items--Category"
-                    >
-                      {`#${el}`}
-                    </li>
-                  </Link>
-                );
-              })}
+              {post.categories.length > 4
+                ? post.categories.slice(0, 4).map((el, i) => {
+                    return (
+                      <Link
+                        key={`homePostCatgLink${i}`}
+                        to={`/posts/?cat=${el}`}
+                      >
+                        <li
+                          key={`homePostCatg${i}`}
+                          className="homePostContainer__Items--Category"
+                        >
+                          {`#${el}`}
+                        </li>
+                      </Link>
+                    );
+                  })
+                : post.categories.map((el, i) => {
+                    return (
+                      <Link
+                        key={`homePostCatgLink${i}`}
+                        to={`/posts/?cat=${el}`}
+                      >
+                        <li
+                          key={`homePostCatg${i}`}
+                          className="homePostContainer__Items--Category"
+                        >
+                          {`#${el}`}
+                        </li>
+                      </Link>
+                    );
+                  })}
             </ul>
             <p className="homePostContainer__Items--Date">
               {/* Posted on <span>{new Date(post.createdAt).toDateString()}</span> */}
