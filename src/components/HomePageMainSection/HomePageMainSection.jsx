@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./HomePageMainSection.css";
+import spinner from "../../assets/spinner.gif";
 function HomePageMainSection() {
-  const a = [1, 3, 4, 5, 5, 6, 6];
-  console.log(a.slice(0, 2));
   const [posts, setPosts] = useState([]);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("/posts");
 
       setPosts(res.data.data.posts);
+      setLoaded(true);
     };
     fetchPosts();
   }, []);
@@ -104,7 +105,15 @@ function HomePageMainSection() {
         </div>
         <p className="servicesHeading">LATEST POSTS</p>
         <div className="homePageMainPostsContainer">
-          <Posts />
+          {loaded ? (
+            <Posts />
+          ) : (
+            <img
+              src={spinner}
+              alt="spinner"
+              style={{ width: "50px", height: "50px" }}
+            />
+          )}
         </div>
         <Link to="/posts" className="homeSeeMore">
           <p>SEE MORE</p>

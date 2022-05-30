@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Post from "../../components/Post/post";
 import "./postsPage.css";
+import spinner from "../../assets/spinner.gif";
 function PostsPage() {
   const { search } = useLocation();
   const searchInputRef = useRef(null);
@@ -11,6 +12,7 @@ function PostsPage() {
   const [catg, setCatg] = useState("");
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchPosts = async () => {
@@ -22,6 +24,7 @@ function PostsPage() {
 
       setPosts(res.data.data.posts);
       setPageCount(res.data.pagination.pageCount);
+      setLoaded(true);
     };
     if (query.length > 2 || query.length === 0) fetchPosts();
     else if (catg !== "") fetchPosts();
@@ -94,7 +97,6 @@ function PostsPage() {
         </div>
       )}
       <div className="postsContainer">
-        {!posts && <h1>Loading...</h1>}
         {posts.length === 0 && (
           <p
             style={{
@@ -106,9 +108,23 @@ function PostsPage() {
             No Search Results...
           </p>
         )}
-        {posts.map((post) => {
-          return <Post key={post._id} post={post} />;
-        })}
+        {loaded ? (
+          posts.map((post) => {
+            return <Post key={post._id} post={post} />;
+          })
+        ) : (
+          <img
+            style={{
+              width: "50px",
+              height: "50px",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+            }}
+            src={spinner}
+            alt="spinner"
+          />
+        )}
       </div>
       <footer className="postsFooter">
         {/* <p style={{ color: "white" }}>Page: {page}</p>

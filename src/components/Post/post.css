@@ -31,15 +31,15 @@ div.postInfoContainer {
 span.postTitle {
   margin-bottom: calc(0.5vh + 0.5rem);
   font-size: calc(0.5vh + 1rem);
-
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: lowercase;
-  color: white;
+  color: rgb(246, 223, 223);
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  text-align: justify;
+  text-align: center;
   padding: 1rem 1rem 0.15rem;
   white-space: pre-wrap;
 }
