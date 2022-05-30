@@ -1,8 +1,4 @@
 div.postsContainer {
-  /* display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center; */
   display: grid;
   gap: calc(1rem + 1vw);
   grid-template-columns: repeat(4, 1fr);
@@ -35,7 +31,7 @@ div.searchBarContainer input::placeholder {
 }
 .fa-xmark {
   position: absolute;
-  top: 20%;
+  top: 0.5rem;
   right: 1rem;
   font-size: calc(0.8rem + 0.5vw);
   color: rgba(247, 202, 202, 0.323);
@@ -43,8 +39,8 @@ div.searchBarContainer input::placeholder {
 }
 .searchBarIcon.fa-magnifying-glass {
   position: absolute;
-  top: 9px;
-  left: 75px;
+  top: 0.6rem;
+  left: 5rem;
   font-size: calc(0.8rem + 0.5vw);
   color: rgba(247, 202, 202, 0.323);
 }
@@ -102,4 +98,147 @@ footer.postsFooter select {
   font-size: calc(0.8rem + 0.5vh);
   padding: 0rem 0.3rem;
   border: none;
+}
+@media screen and (min-width: 3001px) {
+  .searchBarIcon.fa-magnifying-glass {
+    top: 0.7rem;
+    left: 7rem;
+  }
+  .fa-xmark {
+    top: 0.8rem;
+    right: 1rem;
+    font-size: calc(0.8rem + 0.5vw);
+  }
+}
+@media screen and (min-width: 2001px) and (max-width: 3000px) {
+  .searchBarIcon.fa-magnifying-glass {
+    top: 0.7rem;
+    left: calc(3.5rem + 2.3vw);
+  }
+  .fa-xmark {
+    top: 0.7rem;
+    right: 1rem;
+    font-size: calc(0.8rem + 0.5vw);
+  }
+}
+@media screen and (max-width: 2000px) {
+  .searchBarIcon.fa-magnifying-glass {
+    top: 0.7rem;
+    left: calc(3.5rem + 1.5vw);
+  }
+  .fa-xmark {
+    top: 0.7rem;
+    right: 1rem;
+    font-size: calc(0.8rem + 0.5vw);
+  }
+}
+@media screen and (max-width: 1400px) {
+  .searchBarIcon.fa-magnifying-glass {
+    top: 0.8rem;
+    left: 4rem;
+  }
+  .fa-xmark {
+    top: 0.8rem;
+    right: 1rem;
+    font-size: calc(0.8rem + 0.5vw);
+  }
+}
+@media screen and (max-width: 1000px) {
+  div.postsContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .fa-xmark {
+    top: 0.8rem;
+    right: 1rem;
+    font-size: calc(0.8rem + 0.5vw);
+  }
+  .searchBarIcon.fa-magnifying-glass {
+    top: 0.8rem;
+    left: 3rem;
+  }
+}
+@media screen and (max-width: 950px) {
+  .searchBarIcon.fa-magnifying-glass {
+    top: 0.8rem;
+    left: 3.5rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  div.postsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  div.searchCatContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  div.searchBarContainer input {
+    width: 15rem;
+    height: 2.5rem;
+
+    border-radius: 0.2rem;
+    font-size: 1rem;
+
+    margin-bottom: 1rem;
+  }
+  div.searchBarContainer input::placeholder {
+    color: rgb(223, 180, 180);
+  }
+  .fa-xmark {
+    top: 0.8rem;
+    right: 1rem;
+    font-size: calc(0.8rem + 0.5vw);
+  }
+  .searchBarIcon.fa-magnifying-glass {
+    top: 0.8rem;
+    left: 3rem;
+  }
+  div.searchBarContainer input:focus {
+    width: calc(15vw + 13rem);
+  }
+}
+@media screen and (max-width: 550px) {
+  div.postsContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  div.searchCatContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  div.searchBarContainer input {
+    width: 15rem;
+    height: 2.5rem;
+    margin-left: 4vw;
+    background: rgba(67, 65, 46, 0.548);
+    padding: 0rem 3rem;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    color: rgb(247, 202, 202);
+    border: none;
+    transition: all 0.5s ease;
+    margin-bottom: 1rem;
+  }
+  div.searchBarContainer input::placeholder {
+    color: rgb(223, 180, 180);
+  }
+  .fa-xmark {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    font-size: calc(0.8rem + 0.5vw);
+    color: rgba(247, 202, 202, 0.323);
+    cursor: pointer;
+  }
+  .searchBarIcon.fa-magnifying-glass {
+    position: absolute;
+    top: 0.8rem;
+    left: 2.5rem;
+    font-size: calc(0.8rem + 0.5vw);
+    color: rgba(247, 202, 202, 0.323);
+  }
+}
+@media screen and (max-width: 400px) {
+  div.searchCatContainer select {
+    margin-left: 0rem;
+    margin-top: 1rem;
+  }
 }
