@@ -178,13 +178,14 @@ div.hamburger {
     width: 100%;
     flex-direction: column;
     padding-top: 6vh;
+    margin-left: 0rem;
   }
 
   div.topBar__center ul {
     display: flex;
     padding: 1rem;
     flex-direction: column;
-    margin-left: 5vw;
+    margin-left: 12rem;
   }
   div.topBar__center ul li {
     list-style: none;
@@ -209,6 +210,7 @@ div.hamburger {
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
+    margin-left: 4rem;
   }
 
   a.topBarUserContainer {
@@ -221,12 +223,13 @@ div.hamburger {
 
     border-radius: 50%;
     object-fit: cover;
+    margin-left: 4rem;
   }
   div.topBar__right span {
     font-size: calc(1rem + 1vw);
     text-transform: uppercase;
     color: white;
-    margin-left: calc(120px + 6vw);
+    margin-left: 14rem;
     margin-top: 1rem;
   }
   /* NO USER */
@@ -239,7 +242,7 @@ div.hamburger {
     padding: 0.3rem 0.6rem;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
-    margin-left: 10vw;
+    margin-left: 10rem;
     padding: 3.5vw;
   }
   div.topBar__right ul:hover {
@@ -309,21 +312,24 @@ div.hamburger {
 
 @media screen and (max-width: 700px) {
   a.topBarUserContainer {
-    margin-left: calc(100px + 3vw);
+    margin-left: 9rem;
   }
   div.topBar__right span {
-    margin-left: calc(100px + 5vw);
+    margin-left: 12.5rem;
   }
 }
 @media screen and (max-width: 500px) {
   div.topBar__center ul {
-    margin-left: 25vw;
+    margin-left: 10rem;
+  }
+  div.topBar__right ul {
+    margin-left: 9rem;
   }
   a.topBarUserContainer {
-    margin-left: calc(150px + 10vw);
+    margin-left: 8rem;
   }
   div.topBar__right span {
-    margin-left: calc(160px + 10vw);
+    margin-left: 11rem;
   }
 }
 @media screen and (max-height: 700px) {
