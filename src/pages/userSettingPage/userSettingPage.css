@@ -1,6 +1,6 @@
 div.settingsPageContainer {
   width: 100%;
-  height: calc(100vh - 50px);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,4 +78,31 @@ form.userSettingsForm > label {
 .userSettingsLogoutButton:disabled {
   cursor: not-allowed;
   background-color: rgb(255, 0, 106);
+}
+@media screen and (max-width: 1350px) {
+  form.userSettingsForm {
+    width: 40%;
+  }
+  form.userSettingsForm img {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+  }
+}
+@media screen and (max-width: 900px) {
+  form.userSettingsForm {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  form.userSettingsForm {
+    width: 70%;
+    padding: 2rem 1rem;
+  }
+  form.userSettingsForm img {
+    width: 4rem;
+    height: 4rem;
+    align-self: center;
+  }
 }

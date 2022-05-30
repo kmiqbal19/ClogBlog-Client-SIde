@@ -246,3 +246,25 @@ div.singlePostUpdateButtonsContainer button:last-child:hover {
 div.singlePostUpdateButtonsContainer button:last-child:active {
   border: 2px solid white;
 }
+@media screen and (max-width: 1030px) {
+  div.singlePostContainer img {
+    width: 80%;
+    height: 40vh;
+    object-fit: cover;
+    margin: 2vh;
+    border-radius: 1rem;
+    filter: sepia();
+    transition: all 0.5s ease;
+  }
+}
+@media screen and (max-width: 850px) {
+  div.singlePostContainer img {
+    width: 90%;
+    height: 40vh;
+    object-fit: cover;
+    margin: 10vh 0rem 2vh;
+    border-radius: 1rem;
+    filter: sepia();
+    transition: all 0.5s ease;
+  }
+}

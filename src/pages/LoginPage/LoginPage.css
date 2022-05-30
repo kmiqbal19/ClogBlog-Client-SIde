@@ -1,6 +1,6 @@
 div.loginPageContainer {
   width: 100%;
-  height: calc(100vh - 50px);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,4 +68,31 @@ form.loginForm > label {
 }
 .forgotPassLink {
   margin-top: 2vh;
+}
+@media screen and (max-width: 1350px) {
+  form.loginForm {
+    width: 40%;
+  }
+  form.loginForm img {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+  }
+}
+@media screen and (max-width: 900px) {
+  form.loginForm {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  form.loginForm {
+    width: 70%;
+    padding: 2rem 1rem;
+  }
+  form.loginForm img {
+    width: 4rem;
+    height: 4rem;
+    align-self: center;
+  }
 }

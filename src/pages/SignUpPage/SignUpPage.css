@@ -4,7 +4,7 @@ div.signupPageContainer {
       url("https://i.ibb.co/XxC0kjq/adolfo-felix-Yi9-QIOb-Q1o-unsplash.jpg");
   background-size: cover;
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,4 +67,31 @@ span.signupErrorText {
   font-size: 0.9rem;
   color: rgb(253, 1, 1);
   margin-top: 0.5rem;
+}
+@media screen and (max-width: 1350px) {
+  form.signupForm {
+    width: 40%;
+  }
+  form.signupForm img {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+  }
+}
+@media screen and (max-width: 900px) {
+  form.signupForm {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  form.signupForm {
+    width: 70%;
+    padding: 2rem 1rem;
+  }
+  form.signupForm img {
+    width: 4rem;
+    height: 4rem;
+    align-self: center;
+  }
 }

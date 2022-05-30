@@ -1,6 +1,6 @@
 div.changePassPageContainer {
   width: 100%;
-  height: calc(100vh - 50px);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,4 +62,31 @@ form.changePassPageForm > label {
 .changePassPageButton:disabled {
   cursor: not-allowed;
   background-color: rgb(255, 0, 106);
+}
+@media screen and (max-width: 1350px) {
+  form.changePassPageForm {
+    width: 40%;
+  }
+  form.changePassPageForm img {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+  }
+}
+@media screen and (max-width: 900px) {
+  form.changePassPageForm {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  form.changePassPageForm {
+    width: 70%;
+    padding: 2rem 1rem;
+  }
+  form.changePassPageForm img {
+    width: 4rem;
+    height: 4rem;
+    align-self: center;
+  }
 }
