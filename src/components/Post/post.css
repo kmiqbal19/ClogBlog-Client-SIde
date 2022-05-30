@@ -34,6 +34,14 @@ span.postTitle {
 
   text-transform: lowercase;
   color: white;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-align: justify;
+  padding: 1rem 1rem 0.15rem;
+  white-space: pre-wrap;
 }
 .postTitle__link {
   margin-top: 1.5vh;

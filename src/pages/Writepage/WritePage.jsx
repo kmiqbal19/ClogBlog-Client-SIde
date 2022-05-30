@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../../Context/Context";
 import axios from "axios";
 import "./WritePage.css";
-import { Categories } from "./categories";
+
 function WritePage() {
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");

@@ -72,7 +72,7 @@ button.posts-btn {
   margin: 1rem 3rem 2rem;
   background-color: rgba(181, 39, 26, 0.658);
   color: rgb(240, 212, 212);
-  width: calc(2rem + 5vw);
+  width: calc(6rem + 1vw);
   height: calc(2rem + 1vh);
   cursor: pointer;
   border: none;

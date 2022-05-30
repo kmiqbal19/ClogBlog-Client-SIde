@@ -12,6 +12,7 @@ div.writePage img {
   border-radius: 1rem;
   filter: sepia();
   transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  margin-top: 2rem;
 }
 div.writePage img:hover {
   filter: none;
@@ -93,6 +94,7 @@ button.writeSubmit {
   color: white;
   cursor: pointer;
   margin-right: 3vw;
+  margin-bottom: 10rem;
 }
 button.writeSubmit:hover {
   background-color: rgba(81, 255, 6, 0.682);
@@ -116,10 +118,61 @@ button.cancelWriteForm {
   color: white;
   cursor: pointer;
   margin-right: 3vw;
+  margin-bottom: 10rem;
 }
 button.cancelWriteForm:hover {
   background-color: rgba(255, 6, 6, 0.682);
 }
 button.cancelWriteForm:active {
   border: 2px solid white;
+}
+/* ////////////////////////////////////////////////////////////////////////// */
+@media screen and (max-width: 1000px) {
+  div.writePage img {
+    width: 80%;
+    height: 40vh;
+    object-fit: cover;
+    border-radius: 1rem;
+    filter: sepia();
+    transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+
+  .writeIcon {
+    width: calc(2rem + 3vw);
+    height: calc(2rem + 3vw);
+    font-size: calc(2vw + 1rem);
+  }
+
+  button.writeSubmit {
+    width: calc(5rem + 3vw);
+  }
+
+  button.cancelWriteForm {
+    width: calc(5rem + 3vw);
+  }
+}
+@media screen and (max-width: 850px) {
+  div.writePage img {
+    width: 90%;
+    margin: 10rem 2rem 0rem;
+    height: 40vh;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    filter: sepia();
+    transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+
+  .writeIcon {
+    width: calc(2rem + 3vw);
+    height: calc(2rem + 3vw);
+    font-size: calc(2vw + 1rem);
+  }
+
+  button.writeSubmit {
+    width: calc(5rem + 3vw);
+  }
+
+  button.cancelWriteForm {
+    width: calc(5rem + 3vw);
+  }
 }
