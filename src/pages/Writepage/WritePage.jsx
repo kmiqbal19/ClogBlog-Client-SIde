@@ -268,6 +268,17 @@ function WritePage() {
             #medical
             <span className="checkmark"></span>
           </label>
+          <label className="singlePostCatLabel" htmlFor="positivityCatg">
+            <input
+              type="checkbox"
+              id="positivityCatg"
+              name="positivity"
+              value="positivity"
+              onChange={handleCategory}
+            />
+            #positivity
+            <span className="checkmark"></span>
+          </label>
           <label className="singlePostCatLabel" htmlFor="tourCatg">
             <input
               type="checkbox"

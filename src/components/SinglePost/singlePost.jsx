@@ -85,27 +85,7 @@ function SinglePost() {
     e.preventDefault();
     setUpdateMode(false);
   };
-  const CategoriesMap = () => {
-    return Categories.map((category, index) => {
-      return (
-        <label
-          key={`catLabelSinglePost${index}`}
-          className="singlePostCatLabel"
-          htmlFor={category.htmlFor}
-        >
-          <input
-            type="checkbox"
-            id={category.inputId}
-            name={category.inputName}
-            value={category.inputValue}
-            onChange={handleCategory}
-          />
-          {`#${category.labelText}`}
-          <span className="checkmark"></span>
-        </label>
-      );
-    });
-  };
+
   return (
     <div className="singlePostContainer">
       {post.photo && !updateMode && (
@@ -201,6 +181,17 @@ function SinglePost() {
                 onChange={handleCategory}
               />
               #nature
+              <span className="checkmark"></span>
+            </label>
+            <label className="singlePostCatLabel" htmlFor="positivityCatg">
+              <input
+                type="checkbox"
+                id="positivityCatg"
+                name="positivity"
+                value="positivity"
+                onChange={handleCategory}
+              />
+              #positivity
               <span className="checkmark"></span>
             </label>
             <label className="singlePostCatLabel" htmlFor="lifeCatg">

@@ -102,7 +102,7 @@ footer.postsFooter select {
 }
 @media screen and (min-width: 3001px) {
   .searchBarIcon.fa-magnifying-glass {
-    top: 0.7rem;
+    top: 0.6rem;
     left: 7rem;
   }
   .fa-xmark {
@@ -111,10 +111,21 @@ footer.postsFooter select {
     font-size: calc(0.8rem + 0.5vw);
   }
 }
-@media screen and (min-width: 2001px) and (max-width: 3000px) {
+@media screen and (min-width: 2501px) and (max-width: 3000px) {
   .searchBarIcon.fa-magnifying-glass {
     top: 0.7rem;
-    left: calc(3.5rem + 2.3vw);
+    left: 7rem;
+  }
+  .fa-xmark {
+    top: 0.7rem;
+    right: 1rem;
+    font-size: calc(0.8rem + 0.5vw);
+  }
+}
+@media screen and (min-width: 2001px) and (max-width: 2500px) {
+  .searchBarIcon.fa-magnifying-glass {
+    top: 0.7rem;
+    left: 6.5rem;
   }
   .fa-xmark {
     top: 0.7rem;

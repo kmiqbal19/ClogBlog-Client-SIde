@@ -18,7 +18,8 @@ function TopBar() {
           <Link to="/">
             <img
               className="logo"
-              src="https://logosmarken.com/wp-content/uploads/2021/08/Blogger-Logo.png"
+              // src="https://i.ibb.co/ZHFdJhW/city.png"
+              src="https://i.ibb.co/h1hWm2m/city.png"
               alt="df"
             />
           </Link>

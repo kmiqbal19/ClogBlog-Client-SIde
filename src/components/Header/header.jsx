@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className="header">
       <div className="headerWelcome">
-        <p>WELCOME TO CLOG BLOG APP</p>
+        <p>WELCOME TO CLOG BLOG</p>
       </div>
       <div className="headerVideoContainer">
         <div className="overlayVideo"></div>

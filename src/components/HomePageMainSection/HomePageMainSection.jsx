@@ -92,7 +92,17 @@ function HomePageMainSection() {
         </Link>
       </div>
       <footer className="homeFooter">
-        <p>All rights reserved to K M Iqbal</p>
+        <p>
+          A portfolio website. &copy; 2022 All rights reserved to{" "}
+          <a
+            style={{ color: "pink" }}
+            href="https://kmiqbal.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Iqbal
+          </a>
+        </p>
       </footer>
     </>
   );

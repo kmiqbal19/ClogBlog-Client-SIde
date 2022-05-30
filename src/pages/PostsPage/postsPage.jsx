@@ -83,6 +83,7 @@ function PostsPage() {
                 <option value="science-tech">Science & Technology</option>
                 <option value="astronomy">Astronomy</option>
                 <option value="medical">Medical</option>
+                <option value="positivity">Positivity</option>
                 <option value="love">Love</option>
                 <option value="tour">Tour</option>
               </optgroup>

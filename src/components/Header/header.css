@@ -13,9 +13,9 @@ div.header {
   text-align: center;
   padding-top: 12vh;
   margin-bottom: 16vh;
-  font-size: calc(2vw + 1rem);
+  font-size: calc(2vw + 1.2rem);
   position: relative;
-
+  letter-spacing: 2px;
   font-family: "Cormorant", serif;
   color: rgba(221, 221, 221, 0.836);
   mix-blend-mode: difference;
