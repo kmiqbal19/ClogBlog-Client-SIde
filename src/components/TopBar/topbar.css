@@ -136,8 +136,8 @@ div.topBar__right ul li {
 }
 /* Hamburger */
 div.hamburger {
-  width: 5rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 3rem;
   border: 1px solid rgba(138, 138, 19, 0.576);
   z-index: 2;
 
@@ -280,7 +280,7 @@ div.hamburger {
     position: fixed;
     top: 3%;
     right: 6%;
-    padding: 0.8rem;
+    padding: 0.3rem;
   }
   div.line {
     width: 90%;
@@ -300,16 +300,16 @@ div.hamburger {
   }
   div.line-1.clicked {
     position: absolute;
-    top: 30px;
-    width: 60%;
+    top: 22px;
+    width: 50%;
     transform: rotateZ(410deg);
     height: 0.15rem;
   }
   div.line-2.clicked {
     position: absolute;
-    width: 60%;
+    width: 50%;
     transform: rotateZ(670deg);
-    top: 30px;
+    top: 22px;
   }
 }
 
