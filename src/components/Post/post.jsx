@@ -7,7 +7,7 @@ function Post({ post }) {
     <div className="postContainer">
       {post.photo && (
         <img
-          src={`http://localhost:5000/posts/${post.photo}`}
+          src={`https://clogblog-backend.herokuapp.com/posts/${post.photo}`}
           alt="postImage"
         />
       )}

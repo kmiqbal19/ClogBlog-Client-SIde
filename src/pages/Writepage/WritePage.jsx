@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../Context/Context";
-import axios from "axios";
-// import axiosInstance from "../../config";
+// import axios from "axios";
+import axiosInstance from "../../config";
 import "./WritePage.css";
 
 function WritePage() {
@@ -38,13 +38,13 @@ function WritePage() {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("/posts/upload", data);
+        await axiosInstance.post("/posts/upload", data);
       } catch (err) {
         console.log(err);
       }
     }
     try {
-      const res = await axios.post("/posts", newPost);
+      const res = await axiosInstance.post("/posts", newPost);
       console.log(res);
       res.data && window.location.replace(`/posts/${res.data.data.post._id}`);
     } catch (err) {

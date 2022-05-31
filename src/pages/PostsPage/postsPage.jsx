@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
-// import axiosInstance from "../../config";
+// import axios from "axios";
+import axiosInstance from "../../config";
 import Post from "../../components/Post/post";
 import "./postsPage.css";
 import spinner from "../../assets/spinner.gif";
@@ -17,7 +17,7 @@ function PostsPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchPosts = async () => {
-      const res = await axios.get(
+      const res = await axiosInstance.get(
         search
           ? "/posts" + search
           : `/posts/?search=${query}&cat=${catg}&page=${page}`

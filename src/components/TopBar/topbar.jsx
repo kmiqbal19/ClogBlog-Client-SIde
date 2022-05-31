@@ -68,7 +68,7 @@ function TopBar() {
               >
                 <img
                   className="loggedInUserImage"
-                  src={`http://localhost:5000/users/${user.photo}`}
+                  src={`https://clogblog-backend.herokuapp.com/users/${user.photo}`}
                   alt="userImage"
                 />
               </Link>

@@ -1,9 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
 
 import { Context } from "../../Context/Context";
-import axios from "axios";
+// import axios from "axios";
 import "./ChangePassPage.css";
-// import axiosInstance from "../../config";
+import axiosInstance from "../../config";
 function ChangePassPage() {
   const { user, dispatch } = useContext(Context);
   const currentPassRef = useRef(null);
@@ -17,7 +17,7 @@ function ChangePassPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.patch("/users/updateMyPassword", {
+      const res = await axiosInstance.patch("/users/updateMyPassword", {
         id: user._id,
         currentPassword: currentPass,
         password: newPass,

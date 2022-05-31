@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
-// import axiosInstance from "../../config";
+// import axios from "axios";
+import axiosInstance from "../../config";
 import "./SignUpPage.css";
 
 function SignUpPage() {
@@ -20,7 +20,7 @@ function SignUpPage() {
     e.preventDefault();
     try {
       // Post the form data
-      const res = await axios.post("/users/signup", {
+      const res = await axiosInstance.post("/users/signup", {
         fullname,
         username,
         email,
@@ -42,7 +42,7 @@ function SignUpPage() {
   // Using this useEffect for checking available username
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users/?username=${username}`);
+      const res = await axiosInstance.get(`/users/?username=${username}`);
       if (res.data.count > 0) {
         setAvailable(false);
       } else {

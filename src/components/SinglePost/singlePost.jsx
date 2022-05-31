@@ -1,9 +1,9 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
 import { useLocation, Link } from "react-router-dom";
 import "./singlePost.css";
-// import axiosInstance from "../../config";
+import axiosInstance from "../../config";
 function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
@@ -17,7 +17,7 @@ function SinglePost() {
   const [file, setFile] = useState(null);
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(`/posts/${path}`);
+      const res = await axiosInstance.get(`/posts/${path}`);
       setPost(res.data.data.post);
       setCatg(res.data.data.post.categories);
 
@@ -30,7 +30,7 @@ function SinglePost() {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      await axios.delete(`/posts/${post._id}`, {
+      await axiosInstance.delete(`/posts/${post._id}`, {
         data: { username: user.username },
       });
 
@@ -67,14 +67,14 @@ function SinglePost() {
       data.append("file", file);
       updatedPost.photo = filename;
       try {
-        await axios.post("/posts/upload", data);
+        await axiosInstance.post("/posts/upload", data);
       } catch (err) {
         console.log(err);
       }
     }
 
     try {
-      const res = await axios.put(`/posts/${post._id}`, updatedPost);
+      const res = await axiosInstance.put(`/posts/${post._id}`, updatedPost);
       console.log(res.data);
       window.location.reload();
     } catch (err) {
@@ -90,13 +90,13 @@ function SinglePost() {
     <div className="singlePostContainer">
       {post.photo && !updateMode && (
         <img
-          src={`http://localhost:5000/posts/${post.photo}`}
+          src={`https://clogblog-backend.herokuapp.com/posts/${post.photo}`}
           alt="postPicture"
         />
       )}
       {updateMode && !file && (
         <img
-          src={`http://localhost:5000/posts/${post.photo}`}
+          src={`https://clogblog-backend.herokuapp.com/posts/${post.photo}`}
           alt="postPicture"
         />
       )}

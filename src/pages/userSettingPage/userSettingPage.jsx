@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../Context/Context";
-import axios from "axios";
-// import axiosInstance from "../../config";
+// import axios from "axios";
+import axiosInstance from "../../config";
 import "./userSettingPage.css";
 function UserSettingsPage() {
   const { user, dispatch } = useContext(Context);
@@ -31,13 +31,13 @@ function UserSettingsPage() {
       data.append("file", file);
       updatedUserInfo.photo = filename;
       try {
-        await axios.post("/users/upload", data);
+        await axiosInstance.post("/users/upload", data);
       } catch (err) {
         console.log(err);
       }
     }
     try {
-      const res = await axios.patch("/users/updateMe", updatedUserInfo);
+      const res = await axiosInstance.patch("/users/updateMe", updatedUserInfo);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data.data.updatedUser });
       setUpdate(true);
       setTimeout(() => {
@@ -74,7 +74,7 @@ function UserSettingsPage() {
         )}
         {!file && user && (
           <img
-            src={`http://localhost:5000/users/${user.photo}`}
+            src={`https://clogblog-backend.herokuapp.com/users/${user.photo}`}
             alt="defaultUser"
           />
         )}
