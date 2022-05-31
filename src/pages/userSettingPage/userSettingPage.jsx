@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../Context/Context";
 import axios from "axios";
+// import axiosInstance from "../../config";
 import "./userSettingPage.css";
 function UserSettingsPage() {
   const { user, dispatch } = useContext(Context);
@@ -119,7 +120,14 @@ function UserSettingsPage() {
           Log Out
         </button>
 
-        <Link to="/change-password" style={{ marginTop: "10px" }}>
+        <Link
+          to="/change-password"
+          style={{
+            marginTop: "10px",
+            color: "white",
+            textDecoration: "underline",
+          }}
+        >
           Change Password
         </Link>
       </form>

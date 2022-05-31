@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-
 import SinglePost from "./components/SinglePost/singlePost";
 import TopBar from "./components/TopBar/topbar";
 import { Context } from "./Context/Context";

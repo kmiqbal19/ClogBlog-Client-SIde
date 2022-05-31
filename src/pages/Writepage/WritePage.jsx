@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../Context/Context";
 import axios from "axios";
+// import axiosInstance from "../../config";
 import "./WritePage.css";
 
 function WritePage() {
@@ -78,7 +79,7 @@ function WritePage() {
             fontSize: "calc(1rem + 2vw)",
           }}
         >
-          ⚠️ Please enter image file only!
+          ⚠️ Please insert image file only!
         </h1>
       )}
       <form className="writeForm" onSubmit={handleSubmit}>

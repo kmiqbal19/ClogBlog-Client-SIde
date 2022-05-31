@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
 import { useLocation, Link } from "react-router-dom";
 import "./singlePost.css";
-import { Categories } from "./categories.js";
+// import axiosInstance from "../../config";
 function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];

@@ -71,10 +71,11 @@ div.homePostContainer {
   backdrop-filter: blur(5px);
   margin: 2vw;
   background-color: rgba(72, 69, 69, 0.214);
-  transition: all 0.7s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 div.homePostContainer:hover {
-  box-shadow: 2px 2px 3px rgba(255, 255, 255, 0.259);
+  /* box-shadow: 2px 2px 3px rgba(255, 255, 255, 0.259); */
+  transform: scale(1.02);
 }
 div.homePostImage {
   width: calc(500px + 6vw);

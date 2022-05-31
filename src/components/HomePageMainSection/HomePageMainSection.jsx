@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./HomePageMainSection.css";
 import spinner from "../../assets/spinner.gif";
+// import axiosInstance from "../../config.js";
 function HomePageMainSection() {
   const [posts, setPosts] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -69,7 +70,6 @@ function HomePageMainSection() {
                   })}
             </ul>
             <p className="homePostContainer__Items--Date">
-              {/* Posted on <span>{new Date(post.createdAt).toDateString()}</span> */}
               {new Date(post.createdAt).toDateString()}
             </p>
             <p className="homePostContainer__Items--Description">
@@ -111,7 +111,7 @@ function HomePageMainSection() {
             <img
               src={spinner}
               alt="spinner"
-              style={{ width: "50px", height: "50px" }}
+              style={{ width: "50px", height: "50px", marginLeft: "48%" }}
             />
           )}
         </div>

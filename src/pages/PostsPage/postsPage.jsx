@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+// import axiosInstance from "../../config";
 import Post from "../../components/Post/post";
 import "./postsPage.css";
 import spinner from "../../assets/spinner.gif";

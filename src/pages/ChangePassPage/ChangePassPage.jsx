@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+
 import { Context } from "../../Context/Context";
 import axios from "axios";
 import "./ChangePassPage.css";
+// import axiosInstance from "../../config";
 function ChangePassPage() {
   const { user, dispatch } = useContext(Context);
   const currentPassRef = useRef(null);
