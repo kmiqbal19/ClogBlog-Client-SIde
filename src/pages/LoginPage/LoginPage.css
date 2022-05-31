@@ -5,14 +5,9 @@ div.loginPageContainer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* background: linear-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
-    ),
-    url("https://i.ibb.co/9YJWzrd/dose-media-b-U6-Jyh-SI6zo-unsplash.jpg"); */
-  /* background: url("https://i.ibb.co/9YJWzrd/dose-media-b-U6-Jyh-SI6zo-unsplash.jpg"); */
+
   background: linear-gradient(rgba(55, 19, 19, 0.65), rgba(114, 11, 11, 0.456)),
-    url("https://i.ibb.co/NnKHGw8/brady-frieden-Aupdm-Q4w-M4-unsplash.jpg");
+    url("../../assets/loginBG.jpg");
   background-size: cover;
 }
 form.loginForm {

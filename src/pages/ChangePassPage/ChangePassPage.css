@@ -10,7 +10,7 @@ div.changePassPageContainer {
       rgba(90, 3, 3, 0.319),
       rgba(12, 12, 12, 0.365)
     ),
-    url("https://i.ibb.co/J3wnkpW/opollo-photography-i-Spr-Gomt-Yq-A-unsplash.jpg");
+    url("../../assets/changePasswordBG.jpg");
   background-size: cover;
 }
 form.changePassPageForm {

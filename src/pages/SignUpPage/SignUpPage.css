@@ -1,7 +1,6 @@
 div.signupPageContainer {
   background: linear-gradient(rgba(55, 2, 2, 0.472), rgba(80, 2, 2, 0.488)),
-    /* url("https://i.ibb.co/YZmSnRX/kevin-bhagat-z-NRITe8-NPq-Y-unsplash.jpg"); */
-      url("https://i.ibb.co/XxC0kjq/adolfo-felix-Yi9-QIOb-Q1o-unsplash.jpg");
+    url("../../assets/signupBG.jpg");
   background-size: cover;
   width: 100%;
   height: 100vh;
