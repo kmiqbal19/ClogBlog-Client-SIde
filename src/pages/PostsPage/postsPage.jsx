@@ -86,7 +86,7 @@ function PostsPage() {
                 <option value="cooking">Cooking</option>
                 <option value="family">Family</option>
                 <option value="school">School</option>
-                <option value="science-tech">Science & Technology</option>
+                <option value="science">Science & Technology</option>
                 <option value="astronomy">Astronomy</option>
                 <option value="medical">Medical</option>
                 <option value="positivity">Positivity</option>
