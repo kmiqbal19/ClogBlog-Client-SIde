@@ -44,7 +44,7 @@ function LoginPage() {
               textAlign: "center",
             }}
           >
-            You are successfully logged in!
+            🎉 You are successfully logged in!
           </p>
         )}
         <img

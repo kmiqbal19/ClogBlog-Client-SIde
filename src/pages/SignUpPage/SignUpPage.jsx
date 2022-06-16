@@ -16,6 +16,7 @@ function SignUpPage() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [error, setError] = useState(false);
   const [available, setAvailable] = useState(true);
+  const [signUpSuccess, setSignUpSuccess] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -34,7 +35,10 @@ function SignUpPage() {
       passwordRef.current.value = "";
       passwordConfRef.current.value = "";
       // Change window location to login page
-      res.data && window.location.replace("/login");
+      // res.data && window.location.replace("/login");
+      // Change location to homepage
+      res.data && setSignUpSuccess(true);
+      res.data && window.location.replace("/");
     } catch (err) {
       setError(true);
     }
@@ -54,6 +58,18 @@ function SignUpPage() {
   return (
     <div className="signupPageContainer">
       <form className="signupForm" onSubmit={handleSubmit}>
+        {signUpSuccess && (
+          <p
+            style={{
+              marginBottom: "1rem",
+              color: "green",
+              textAlign: "center",
+              fontSize: "1.2rem",
+            }}
+          >
+            🎉 Sign Up Successful!
+          </p>
+        )}
         <img src="https://i.ibb.co/yBwmZh6/default.png" alt="avatar" />
         <label>Full Name</label>
         <input

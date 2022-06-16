@@ -108,11 +108,7 @@ function HomePageMainSection() {
           {loaded ? (
             <Posts />
           ) : (
-            <img
-              src={spinner}
-              alt="spinner"
-              style={{ width: "50px", height: "50px", marginLeft: "48%" }}
-            />
+            <img src={spinner} alt="spinner" className="homepage__spinner" />
           )}
         </div>
         <Link to="/posts" className="homeSeeMore">

@@ -97,7 +97,7 @@ function PostsPage() {
           </label>
         </div>
       )}
-      <div className="postsContainer">
+      <div className={loaded ? "postsContainer" : "loading-posts"}>
         {posts.length === 0 && (
           <p
             style={{
@@ -114,17 +114,10 @@ function PostsPage() {
             return <Post key={post._id} post={post} />;
           })
         ) : (
-          <img
-            style={{
-              width: "50px",
-              height: "50px",
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-            }}
-            src={spinner}
-            alt="spinner"
-          />
+          <div className="loading__postpage">
+            <p>Loading...</p>
+            <img className="spinner__postpage" src={spinner} alt="spinner" />
+          </div>
         )}
       </div>
       <footer className="postsFooter">

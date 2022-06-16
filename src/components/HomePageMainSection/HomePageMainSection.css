@@ -180,6 +180,11 @@ footer.homeFooter {
 footer.homeFooter p {
   color: rgba(226, 225, 225, 0.851);
 }
+img.homepage__spinner {
+  width: 50px;
+  height: 50px;
+  margin: 0rem auto;
+}
 @media screen and (max-width: 1550px) {
   p.homePostContainer__Items--Description {
     overflow: hidden;

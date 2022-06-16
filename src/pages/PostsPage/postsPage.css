@@ -7,6 +7,13 @@ div.postsContainer {
   min-height: 100vh;
   min-width: 0;
 }
+div.loading-posts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 div.searchCatContainer {
   display: flex;
   align-items: center;
@@ -99,6 +106,23 @@ footer.postsFooter select {
   font-size: calc(0.8rem + 0.5vh);
   padding: 0rem 0.3rem;
   border: none;
+}
+div.loading__postpage {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div.loading__postpage p {
+  font-size: calc(1.5rem + 1vw);
+  color: rgb(200, 187, 187);
+  margin: 2rem;
+}
+div.loading__postpage img {
+  width: calc(50px + 1vw);
+  height: calc(50px + 1vw);
 }
 @media screen and (min-width: 3001px) {
   .searchBarIcon.fa-magnifying-glass {
