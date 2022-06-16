@@ -20,7 +20,7 @@ function TopBar() {
               className="logo"
               // src="https://i.ibb.co/ZHFdJhW/city.png"
               src="https://i.ibb.co/h1hWm2m/city.png"
-              alt="df"
+              alt="clogblog-logo"
             />
           </Link>
         </div>
@@ -69,7 +69,7 @@ function TopBar() {
                 <img
                   className="loggedInUserImage"
                   src={`https://clogblog-backend.herokuapp.com/users/${user.photo}`}
-                  alt="userImage"
+                  alt="user"
                 />
               </Link>
               {user && <span>{user.fullname.split(" ")[0].toUpperCase()}</span>}
