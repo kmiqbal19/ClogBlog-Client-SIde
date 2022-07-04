@@ -1,15 +1,26 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../../Context/Context";
 // import axios from "axios";
 import axiosInstance from "../../config";
 import "./WritePage.css";
 import { ToastContainer, toast } from "react-toastify";
+import Spinner from "../../components/spinner/spinner.js";
 function WritePage() {
   const { user } = useContext(Context);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
   const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    if (success) {
+      toast.dark("✨🎉Your post has been posted!");
+    }
+    return () => {
+      setSuccess(false);
+    };
+  }, [success]);
   const handleCategory = (e) => {
     const { value, checked } = e.target;
     // console.log(`${value} is ${checked}`);
@@ -23,6 +34,7 @@ function WritePage() {
     }
   };
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
     const data = new FormData();
@@ -37,10 +49,16 @@ function WritePage() {
     }
     try {
       const res = await axiosInstance.post("/posts", data);
-      res.data && toast.dark("Your post has been added!🎉");
-      res.data && window.location.replace(`/posts/${res.data.data.post._id}`);
+      if (res.data) {
+        setLoading(false);
+        setSuccess(true);
+        setTimeout(() => {
+          window.location.replace(`/posts/${res.data.data.post._id}`);
+        }, 1000);
+      }
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
   };
   const handleCancel = () => {
@@ -48,6 +66,7 @@ function WritePage() {
   };
   return (
     <div className="writePage">
+      {loading && <Spinner />}
       {file && file.type.startsWith("image") && (
         <img src={URL.createObjectURL(file)} alt="uploadedFile" />
       )}

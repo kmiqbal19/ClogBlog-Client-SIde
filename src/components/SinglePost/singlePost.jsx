@@ -5,10 +5,14 @@ import { useLocation, Link } from "react-router-dom";
 import "./singlePost.css";
 import axiosInstance from "../../config";
 import defaultPostImg from "../../assets/defaultPost.png";
+import Spinner from "../../components/spinner/spinner.js";
+import { toast } from "react-toastify";
 function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const { user } = useContext(Context);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [post, setPost] = useState({});
   const [catg, setCatg] = useState([]);
   const [updateMode, setUpdateMode] = useState(false);
@@ -30,13 +34,17 @@ function SinglePost() {
   }, [path]);
   const handleDelete = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      await axiosInstance.delete(`/posts/${post._id}`, {
+      const res = await axiosInstance.delete(`/posts/${post._id}`, {
         data: { username: user.username },
       });
-
-      window.location.replace("/");
+      if (res) {
+        setLoading(false);
+        window.location.replace("/posts");
+      }
     } catch (err) {
+      setLoading(false);
       console.log(err.message);
     }
   };
@@ -54,7 +62,7 @@ function SinglePost() {
   };
   const handleUpdate = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const data = new FormData();
     data.append("username", user.username);
     data.append("title", title);
@@ -68,10 +76,17 @@ function SinglePost() {
 
     try {
       const res = await axiosInstance.put(`/posts/${post._id}`, data);
-      console.log(res.data);
-      window.location.reload();
+      if (res.data) {
+        setLoading(false);
+        toast.dark("✨💖Your post has been updated!");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      }
     } catch (err) {
       console.log(err.message);
+      setLoading(false);
+      toast.error("⚠️ Something went wrong!");
     }
   };
   const handleCancel = (e) => {
@@ -81,6 +96,7 @@ function SinglePost() {
 
   return (
     <div className="singlePostContainer">
+      {loading && <Spinner />}
       {!post.photo && <img src={defaultPostImg} alt="post-img" />}
       {post.photo && !updateMode && <img src={post.photo} alt="postPicture" />}
       {updateMode && !file && <img src={post.photo} alt="postPicture" />}
