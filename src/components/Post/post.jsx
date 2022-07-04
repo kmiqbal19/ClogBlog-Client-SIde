@@ -2,15 +2,12 @@ import React from "react";
 import "./post.css";
 
 import { Link } from "react-router-dom";
+import defaultPostImg from "../../assets/defaultPost.png";
 function Post({ post }) {
   return (
     <div className="postContainer">
-      {post.photo && (
-        <img
-          src={`https://clogblog-backend.herokuapp.com/posts/${post.photo}`}
-          alt="postImage"
-        />
-      )}
+      <img src={post.photo ? post.photo : defaultPostImg} alt="postImage" />
+
       <div className="postInfoContainer">
         <Link className="postTitle__link" to={`/posts/${post._id}`}>
           <span className="postTitle">{post.title}</span>

@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import "./HomePageMainSection.css";
 import spinner from "../../assets/spinner.gif";
 import axiosInstance from "../../config.js";
+import defaultPostImg from "../../assets/defaultPost.png";
 function HomePageMainSection() {
   const [posts, setPosts] = useState([]);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axiosInstance.get("/posts");
-      console.log(res);
+      // console.log(res);
       setPosts(res.data.data.posts);
       setLoaded(true);
     };
@@ -23,7 +24,7 @@ function HomePageMainSection() {
           <Link to={`/posts/${post._id}`}>
             <div className="homePostImage">
               <img
-                src={`https://clogblog-backend.herokuapp.com/posts/${post.photo}`}
+                src={post.photo ? post.photo : defaultPostImg}
                 alt="post-img"
               />
             </div>

@@ -1,9 +1,9 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
 import { useLocation, Link } from "react-router-dom";
 import "./singlePost.css";
-// import axiosInstance from "../../config";
+import axiosInstance from "../../config";
 import defaultPostImg from "../../assets/defaultPost.png";
 function SinglePost() {
   const location = useLocation();
@@ -18,7 +18,7 @@ function SinglePost() {
   const [file, setFile] = useState(null);
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(`/posts/${path}`);
+      const res = await axiosInstance.get(`/posts/${path}`);
       setPost(res.data.data.post);
       setCatg(res.data.data.post.categories);
 
@@ -31,7 +31,7 @@ function SinglePost() {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      await axios.delete(`/posts/${post._id}`, {
+      await axiosInstance.delete(`/posts/${post._id}`, {
         data: { username: user.username },
       });
 
@@ -67,7 +67,7 @@ function SinglePost() {
     }
 
     try {
-      const res = await axios.put(`/posts/${post._id}`, data);
+      const res = await axiosInstance.put(`/posts/${post._id}`, data);
       console.log(res.data);
       window.location.reload();
     } catch (err) {
