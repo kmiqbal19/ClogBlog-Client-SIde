@@ -32,6 +32,18 @@ function SinglePost() {
 
     fetch();
   }, [path]);
+  useEffect(() => {
+    if (success) {
+      setUpdateMode(false);
+      toast.dark("✨💖Your post has been updated!");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
+    return () => {
+      setSuccess(false);
+    };
+  }, [success]);
   const handleDelete = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -77,11 +89,8 @@ function SinglePost() {
     try {
       const res = await axiosInstance.put(`/posts/${post._id}`, data);
       if (res.data) {
+        setSuccess(true);
         setLoading(false);
-        toast.dark("✨💖Your post has been updated!");
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
       }
     } catch (err) {
       console.log(err.message);

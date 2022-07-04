@@ -1,22 +1,39 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useEffect, useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../Context/Context";
 // import axios from "axios";
 import axiosInstance from "../../config";
 import "./userSettingPage.css";
 import defaultUser from "../../assets/defaultUser.jpg";
+import Spinner from "../../components/spinner/spinner.js";
+import { toast } from "react-toastify";
 function UserSettingsPage() {
   const { user, dispatch } = useContext(Context);
   const emailRef = useRef(null);
   const fullnameRef = useRef(null);
+  const [loading, setLoading] = useState(false);
 
   const [email, setEmail] = useState("");
   const [fullname, setFullname] = useState("");
   const [file, setFile] = useState(null);
   const [error, setError] = useState(false);
   const [update, setUpdate] = useState(false);
+  useEffect(() => {
+    if (update) {
+      toast.dark("✨💖Your profile has been updated!");
+    }
+    if (error) {
+      toast.error("⚠️🥵 Something went wrong!");
+    }
+    return () => {
+      setUpdate(false);
+      setError(false);
+    };
+  }, [update, error]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     dispatch({ type: "UPDATE_START" });
     const data = new FormData();
     data.append("email", email);
@@ -30,14 +47,18 @@ function UserSettingsPage() {
     try {
       const res = await axiosInstance.patch("/users/updateMe", data);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data.data.updatedUser });
-      setUpdate(true);
-      setTimeout(() => {
-        window.location.replace("/");
-      }, 2000);
+      if (res.data) {
+        setLoading(false);
+        setUpdate(true);
+        setTimeout(() => {
+          window.location.replace("/");
+        }, 2000);
+      }
     } catch (err) {
       console.log(err);
       dispatch({ type: "UPDATE_FAILURE" });
       setError(true);
+      setLoading(false);
     }
     emailRef.current.value = "";
     fullnameRef.current.value = "";
@@ -51,6 +72,7 @@ function UserSettingsPage() {
   };
   return (
     <div className="settingsPageContainer">
+      {loading && <Spinner />}
       <form className="userSettingsForm" onSubmit={handleSubmit}>
         {update && (
           <p

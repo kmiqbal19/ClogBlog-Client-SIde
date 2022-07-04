@@ -332,7 +332,7 @@ function WritePage() {
           <button
             className="writeSubmit"
             type="submit"
-            disabled={!title || !file || !description || !categories}
+            disabled={!title || !file || !description || !categories || success}
           >
             Publish
           </button>

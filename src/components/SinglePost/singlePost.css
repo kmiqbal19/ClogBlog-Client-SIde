@@ -234,6 +234,9 @@ div.singlePostUpdateButtonsContainer button:first-child {
 div.singlePostUpdateButtonsContainer button:first-child:hover {
   background-color: rgba(70, 255, 3, 0.589);
 }
+div.singlePostUpdateButtonsContainer button:first-child:disabled {
+  background-color: rgba(170, 55, 35, 0.589);
+}
 div.singlePostUpdateButtonsContainer button:first-child:active {
   border: 2px solid white;
 }

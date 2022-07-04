@@ -1,7 +1,7 @@
 div.spinner__container {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(111, 113, 74, 0.8);
   z-index: 2;
   display: flex;
   justify-content: center;

@@ -97,6 +97,9 @@ span.postDate {
 span.postAuthor b a {
   color: rgb(221, 198, 198);
 }
+span.postAuthor b a:hover {
+  color: rgb(225, 142, 142);
+}
 p.postDescription {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;

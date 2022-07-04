@@ -17,7 +17,7 @@ function Spinner() {
           cy="50"
           r="33"
           stroke-width="5"
-          stroke="#fff"
+          stroke="#FF0063"
           stroke-dasharray="51.83627878423159 51.83627878423159"
           fill="none"
         >
