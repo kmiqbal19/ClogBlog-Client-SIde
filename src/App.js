@@ -10,7 +10,8 @@ import PostsPage from "./pages/PostsPage/postsPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import UserSettingsPage from "./pages/userSettingPage/userSettingPage";
 import WritePage from "./pages/Writepage/WritePage";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const { user } = useContext(Context);
   return (
@@ -32,6 +33,7 @@ function App() {
           element={user ? <ChangePassPage /> : <SignUpPage />}
         />
       </Routes>
+      <ToastContainer />
     </>
   );
 }

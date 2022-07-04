@@ -4,7 +4,7 @@ import { Context } from "../../Context/Context";
 // import axios from "axios";
 import axiosInstance from "../../config";
 import "./LoginPage.css";
-
+import { toast } from "react-toastify";
 function LoginPage() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -12,6 +12,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
   const { fetchError, dispatch, isFetching } = useContext(Context);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
@@ -26,6 +27,7 @@ function LoginPage() {
       setEmail("");
       setPassword("");
       setLogin(true);
+      toast.dark("You are logging in...");
 
       window.location.replace("/");
     } catch (err) {

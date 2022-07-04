@@ -28,6 +28,13 @@ div.postInfoContainer {
   flex-direction: column;
   align-items: center;
 }
+div.postInfoContainer a.postTitle__link {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+div.postInfoContainer a.postTitle__link:hover {
+  background-color: #5f5555;
+  border-radius: 10px;
+}
 span.postTitle {
   margin-bottom: calc(0.5vh + 0.5rem);
   font-size: calc(0.5vh + 1rem);
@@ -43,6 +50,7 @@ span.postTitle {
   padding: 1rem 1rem 0.15rem;
   white-space: pre-wrap;
 }
+
 .postTitle__link {
   margin-top: 1.5vh;
   text-align: center;

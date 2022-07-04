@@ -3,7 +3,7 @@ import { Context } from "../../Context/Context";
 // import axios from "axios";
 import axiosInstance from "../../config";
 import "./WritePage.css";
-
+import { ToastContainer, toast } from "react-toastify";
 function WritePage() {
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
@@ -37,7 +37,7 @@ function WritePage() {
     }
     try {
       const res = await axiosInstance.post("/posts", data);
-      console.log(res);
+      res.data && toast.dark("Your post has been added!🎉");
       res.data && window.location.replace(`/posts/${res.data.data.post._id}`);
     } catch (err) {
       console.log(err);
@@ -326,6 +326,7 @@ function WritePage() {
           </button>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 }
