@@ -1,9 +1,10 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../Context/Context";
 // import axios from "axios";
 import axiosInstance from "../../config";
 import "./LoginPage.css";
+import Spinner from "../../components/spinner/spinner.js";
 import { toast } from "react-toastify";
 function LoginPage() {
   const emailRef = useRef(null);
@@ -11,10 +12,27 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
+
+  const [error, setError] = useState(false);
   const { fetchError, dispatch, isFetching } = useContext(Context);
+
+  useEffect(() => {
+    if (login) {
+      toast.dark("✨💖You are succesfully logged in!");
+    }
+    if (error) {
+      toast.error("⚠️ Something went wrong!");
+    }
+
+    return () => {
+      setLogin(false);
+      setError(false);
+    };
+  }, [error, login]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axiosInstance.post("/users/login", {
@@ -26,17 +44,20 @@ function LoginPage() {
       passwordRef.current.value = "";
       setEmail("");
       setPassword("");
-      setLogin(true);
-      toast.dark("You are logging in...");
+      if (res.data) {
+        setLogin(true);
 
-      window.location.replace("/");
+        window.location.replace("/");
+      }
     } catch (err) {
+      setError(true);
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };
 
   return (
     <div className="loginPageContainer">
+      {isFetching && <Spinner />}
       <form className="loginForm" onSubmit={handleSubmit}>
         {login && (
           <p

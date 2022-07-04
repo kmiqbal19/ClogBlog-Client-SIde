@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 // import axios from "axios";
 import axiosInstance from "../../config";
 import "./SignUpPage.css";
-
+import Spinner from "../../components/spinner/spinner.js";
+import { toast } from "react-toastify";
 function SignUpPage() {
   const fullnameRef = useRef(null);
   const usernameRef = useRef(null);
@@ -14,11 +15,35 @@ function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [available, setAvailable] = useState(true);
   const [signUpSuccess, setSignUpSuccess] = useState(false);
+
+  // Using this useEffect for checking available username
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axiosInstance.get(`/users/?username=${username}`);
+      if (res.data.count > 0) {
+        setAvailable(false);
+      } else {
+        setAvailable(true);
+      }
+    };
+    username.length >= 3 && fetchUser();
+  }, [username]);
+  useEffect(() => {
+    if (signUpSuccess) {
+      toast("✨🎉You are successfully signed up!");
+    }
+    if (error) {
+      toast.error("⚠️🥵Something went wrong!");
+    }
+  }, [error, signUpSuccess]);
+  // HANDLE SUBMIT FORM
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       // Post the form data
       const res = await axiosInstance.post("/users/signup", {
@@ -37,26 +62,20 @@ function SignUpPage() {
       // Change window location to login page
       // res.data && window.location.replace("/login");
       // Change location to homepage
-      res.data && setSignUpSuccess(true);
-      res.data && window.location.replace("/");
+      if (res.data) {
+        setLoading(false);
+        setSignUpSuccess(true);
+        setTimeout(() => {
+          window.location.replace("/login");
+        }, 1500);
+      }
     } catch (err) {
       setError(true);
     }
   };
-  // Using this useEffect for checking available username
-  useEffect(() => {
-    const fetchUser = async () => {
-      const res = await axiosInstance.get(`/users/?username=${username}`);
-      if (res.data.count > 0) {
-        setAvailable(false);
-      } else {
-        setAvailable(true);
-      }
-    };
-    username.length >= 3 && fetchUser();
-  }, [username]);
   return (
     <div className="signupPageContainer">
+      {loading && <Spinner />}
       <form className="signupForm" onSubmit={handleSubmit}>
         {signUpSuccess && (
           <p
