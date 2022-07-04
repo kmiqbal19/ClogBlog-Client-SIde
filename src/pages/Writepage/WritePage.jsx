@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../Context/Context";
-// import axios from "axios";
-import axiosInstance from "../../config";
+import axios from "axios";
+// import axiosInstance from "../../config";
 import "./WritePage.css";
 
 function WritePage() {
@@ -24,27 +24,19 @@ function WritePage() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newPost = {
-      title,
-      description,
-      categories,
-      username: user.username,
-    };
 
+    const data = new FormData();
+    data.append("title", title);
+    data.append("description", description);
+    for (let i = 0; i < categories.length; i++) {
+      data.append("categories[]", categories[i]);
+    }
+    data.append("username", user.username);
     if (file) {
-      const data = new FormData();
-      const filename = `post-${user._id}-${Date.now()}-${file.name}`;
-      data.append("name", filename);
-      data.append("file", file);
-      newPost.photo = filename;
-      try {
-        await axiosInstance.post("/posts/upload", data);
-      } catch (err) {
-        console.log(err);
-      }
+      data.append("photo", file);
     }
     try {
-      const res = await axiosInstance.post("/posts", newPost);
+      const res = await axios.post("/posts", data);
       console.log(res);
       res.data && window.location.replace(`/posts/${res.data.data.post._id}`);
     } catch (err) {

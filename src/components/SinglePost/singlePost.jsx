@@ -1,9 +1,10 @@
-// import axios from "axios";
+import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
 import { useLocation, Link } from "react-router-dom";
 import "./singlePost.css";
-import axiosInstance from "../../config";
+// import axiosInstance from "../../config";
+import defaultPostImg from "../../assets/defaultPost.png";
 function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
@@ -17,7 +18,7 @@ function SinglePost() {
   const [file, setFile] = useState(null);
   useEffect(() => {
     const fetch = async () => {
-      const res = await axiosInstance.get(`/posts/${path}`);
+      const res = await axios.get(`/posts/${path}`);
       setPost(res.data.data.post);
       setCatg(res.data.data.post.categories);
 
@@ -30,7 +31,7 @@ function SinglePost() {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      await axiosInstance.delete(`/posts/${post._id}`, {
+      await axios.delete(`/posts/${post._id}`, {
         data: { username: user.username },
       });
 
@@ -53,28 +54,20 @@ function SinglePost() {
   };
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const updatedPost = {
-      title,
-      description,
-      categories,
-      username: user.username,
-    };
 
+    const data = new FormData();
+    data.append("username", user.username);
+    data.append("title", title);
+    data.append("description", description);
+    for (let i = 0; i < categories.length; i++) {
+      data.append("categories[]", categories[i]);
+    }
     if (file) {
-      const data = new FormData();
-      const filename = `post-${user._id}-${Date.now()}-updated${file.name}`;
-      data.append("name", filename);
-      data.append("file", file);
-      updatedPost.photo = filename;
-      try {
-        await axiosInstance.post("/posts/upload", data);
-      } catch (err) {
-        console.log(err);
-      }
+      data.append("photo", file);
     }
 
     try {
-      const res = await axiosInstance.put(`/posts/${post._id}`, updatedPost);
+      const res = await axios.put(`/posts/${post._id}`, data);
       console.log(res.data);
       window.location.reload();
     } catch (err) {
@@ -88,18 +81,9 @@ function SinglePost() {
 
   return (
     <div className="singlePostContainer">
-      {post.photo && !updateMode && (
-        <img
-          src={`https://clogblog-backend.herokuapp.com/posts/${post.photo}`}
-          alt="postPicture"
-        />
-      )}
-      {updateMode && !file && (
-        <img
-          src={`https://clogblog-backend.herokuapp.com/posts/${post.photo}`}
-          alt="postPicture"
-        />
-      )}
+      {!post.photo && <img src={defaultPostImg} alt="post-img" />}
+      {post.photo && !updateMode && <img src={post.photo} alt="postPicture" />}
+      {updateMode && !file && <img src={post.photo} alt="postPicture" />}
       {updateMode && file && file.type.startsWith("image") && (
         <img src={URL.createObjectURL(file)} alt="uploadedImg" />
       )}
@@ -351,16 +335,17 @@ function SinglePost() {
           </div>
         ) : (
           <ul className="singlePostCategoryList">
-            {catg.map((el, i) => {
-              return (
-                <Link
-                  key={`catSinglePostLink${i}`}
-                  to={`/posts/?cat=${el.toLowerCase()}`}
-                >
-                  <li key={`catSinglePost${i}`}>{`#${el}`} </li>
-                </Link>
-              );
-            })}
+            {catg !== [] &&
+              catg.map((el, i) => {
+                return (
+                  <Link
+                    key={`catSinglePostLink${i}`}
+                    to={`/posts/?cat=${el.toLowerCase()}`}
+                  >
+                    <li key={`catSinglePost${i}`}>{`#${el}`} </li>
+                  </Link>
+                );
+              })}
           </ul>
         )}
       </div>
