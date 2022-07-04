@@ -4,6 +4,7 @@ import { Context } from "../../Context/Context";
 // import axios from "axios";
 import axiosInstance from "../../config";
 import "./userSettingPage.css";
+import defaultUser from "../../assets/defaultUser.jpg";
 function UserSettingsPage() {
   const { user, dispatch } = useContext(Context);
   const emailRef = useRef(null);
@@ -17,27 +18,17 @@ function UserSettingsPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "UPDATE_START" });
-    const updatedUserInfo = {
-      email,
-      fullname,
-      username: user.username,
-      id: user._id,
-    };
-
+    const data = new FormData();
+    data.append("email", email);
+    data.append("fullname", fullname);
+    data.append("username", user.username);
+    data.append("id", user._id);
     if (file) {
-      const data = new FormData();
-      const filename = `user-${user._id}-${Date.now()}-${file.name}`;
-      data.append("name", filename);
-      data.append("file", file);
-      updatedUserInfo.photo = filename;
-      try {
-        await axiosInstance.post("/users/upload", data);
-      } catch (err) {
-        console.log(err);
-      }
+      data.append("photo", file);
     }
+
     try {
-      const res = await axiosInstance.patch("/users/updateMe", updatedUserInfo);
+      const res = await axiosInstance.patch("/users/updateMe", data);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data.data.updatedUser });
       setUpdate(true);
       setTimeout(() => {
@@ -73,10 +64,7 @@ function UserSettingsPage() {
           </p>
         )}
         {!file && user && (
-          <img
-            src={`https://clogblog-backend.herokuapp.com/users/${user.photo}`}
-            alt="defaultUser"
-          />
+          <img src={user.photo ? user.photo : defaultUser} alt="defaultUser" />
         )}
 
         {file && file.type.startsWith("image") && (

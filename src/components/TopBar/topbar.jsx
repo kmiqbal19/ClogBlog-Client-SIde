@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../Context/Context";
 import "./topbar.css";
+import defaultUser from "../../assets/defaultUser.jpg";
 function TopBar() {
   const [hamClicked, setHamClicked] = useState(false);
   const { user, dispatch } = useContext(Context);
@@ -68,7 +69,7 @@ function TopBar() {
               >
                 <img
                   className="loggedInUserImage"
-                  src={`https://clogblog-backend.herokuapp.com/users/${user.photo}`}
+                  src={user.photo ? user.photo : defaultUser}
                   alt="user"
                 />
               </Link>
