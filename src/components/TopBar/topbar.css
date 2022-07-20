@@ -341,8 +341,8 @@ div.hamburger {
     margin-left: 11rem;
   }
 }
-@media screen and (max-height: 700px) {
+/* @media screen and (max-height: 700px) {
   div.topBar__right span {
     margin-bottom: 3rem;
   }
-}
+} */
