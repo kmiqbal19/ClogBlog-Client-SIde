@@ -6,6 +6,12 @@ CLOGBLOG (Blog App) Client Side
 
 ![App Screenshot](https://i.ibb.co/51GjXDH/clogblog-gif.gif)
 
+## Authors
+
+- [@kmiqbal19](https://github.com/kmiqbal19)
+
+![Logo](https://i.ibb.co/ZHFdJhW/city.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -14,12 +20,6 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-## Authors
-
-- [@kmiqbal19](https://github.com/kmiqbal19)
-
-![Logo](https://i.ibb.co/ZHFdJhW/city.png)
 
 ## API Reference
 
