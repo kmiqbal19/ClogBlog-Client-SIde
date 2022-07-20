@@ -44,11 +44,11 @@ function TopBar() {
                 </Link>
               </li>
             )}
-            <li className="topBarList__item">
+            {/* <li className="topBarList__item">
               <Link to="/about" onClick={() => setHamClicked(!hamClicked)}>
                 ABOUT
               </Link>
-            </li>
+            </li> */}
             {user && (
               <li
                 className="topBarList__item logoutButton"
