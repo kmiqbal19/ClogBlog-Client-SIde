@@ -2,7 +2,7 @@
 
 CLOGBLOG (Blog App) Client Side
 
-## Demo
+## Screenshots
 
 ![App Screenshot](https://i.ibb.co/Scwgm7J/Screenshot-2022-07-20-232350.png)
 ![App Screenshot](https://i.ibb.co/zNB6qsb/Screenshot-2022-07-20-232407.png)
