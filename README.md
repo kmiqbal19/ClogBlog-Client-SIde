@@ -4,6 +4,8 @@ CLOGBLOG (Blog App) Client Side
 
 ## Demo
 
+![App Screenshot](https://i.ibb.co/Scwgm7J/Screenshot-2022-07-20-232350.png)
+![App Screenshot](https://i.ibb.co/zNB6qsb/Screenshot-2022-07-20-232407.png)
 ![App Screenshot](https://i.ibb.co/51GjXDH/clogblog-gif.gif)
 
 ## Authors
