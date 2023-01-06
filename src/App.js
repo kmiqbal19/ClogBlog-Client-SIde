@@ -12,11 +12,13 @@ import UserSettingsPage from "./pages/userSettingPage/userSettingPage";
 import WritePage from "./pages/Writepage/WritePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HerokuErrorModal from "./components/herokuError/HerokuErrorModal";
 function App() {
   const { user } = useContext(Context);
 
   return (
     <>
+      <HerokuErrorModal />
       <TopBar />
 
       <Routes>
