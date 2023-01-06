@@ -3,7 +3,7 @@ div.herokuapp-error__modal {
   justify-content: center;
   align-items: center;
   z-index: 30;
-  background-color: rgba(0, 0, 0, 0.86);
+  background-color: rgba(94, 13, 13, 0.76);
   position: fixed;
   left: 0;
   right: 0;
@@ -22,7 +22,7 @@ div.herokuapp-error__modal div {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: 5px 5px 10px red;
+  box-shadow: 5px 5px 10px black;
 }
 div.herokuapp-error__modal div h1 {
   font-size: calc(2rem + 0.5vw);
